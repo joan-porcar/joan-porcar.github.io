@@ -1,0 +1,205 @@
+---
+// src/pages/index.astro
+import { getCollection } from 'astro:content';
+
+// 1. Obtener y ordenar los posts de forma cronológica (más recientes primero)
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+
+// Tags principales definidos para el filtrado minimalista
+const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
+---
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Joan Porcar | Conectando Puntos</title>
+    <meta name="description" content="Espacio de marca personal de Joan Porcar. Trading, mentalidad, tecnología y reflexiones sin filtros desde la trinchera." />
+    
+    <!-- Google Fonts: Roboto y una fuente geométrica/moderna para títulos -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #0A0A0C;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        /* Estilo personalizado para el enfoque de selección y scroll */
+        ::selection {
+            background-color: #CCFF00;
+            color: #0A0A0C;
+        }
+    </style>
+</head>
+<body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#CCFF00] selection:text-[#0A0A0C]">
+
+    <!-- Encabezado / Navegación Minimalista -->
+    <header class="max-w-4xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50">
+        <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#CCFF00] transition-colors">
+            joanporcar<span class="text-[#CCFF00]">.com</span>
+        </a>
+        <nav class="flex gap-6 text-sm font-medium">
+            <a href="/" class="text-[#CCFF00] transition-colors">Inicio</a>
+            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-6 py-16 space-y-24">
+        
+        <!-- Zona HERO con Formulario de Suscripción -->
+        <section class="space-y-8 md:pr-12">
+            <div class="space-y-4">
+                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
+                    Conectando puntos en la <span class="text-[#CCFF00]">trinchera</span>.
+                </h1>
+                <p class="text-lg md:text-xl text-[#94A3B8] max-w-2xl leading-relaxed">
+                    Trading, sistemas, comportamiento humano y el caos de la tecnología. No busco darte lecciones de éxito rápido; comparto la realidad cruda de lo que funciona y lo que destruye cuentas y mentes.
+                </p>
+            </div>
+
+            <!-- Formulario Premium de Captación -->
+            <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-xl max-w-xl backdrop-blur-sm space-y-4">
+                <div class="space-y-1">
+                    <h3 class="text-white font-semibold text-base">Únete al radar de Joan</h3>
+                    <p class="text-xs text-zinc-400">Píldoras directas y ensayos densos sobre mercados, sesgos analizados y código. Cero spam de gurú.</p>
+                </div>
+                <form class="flex flex-col sm:flex-row gap-3">
+                    <input 
+                        type="email" 
+                        required 
+                        placeholder="Tu email principal..." 
+                        class="flex-1 bg-[#0A0A0C] border border-zinc-700 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#CCFF00] transition-colors"
+                    />
+                    <button 
+                        type="submit" 
+                        class="bg-[#CCFF00] text-[#0A0A0C] font-bold text-sm px-6 py-3 rounded-lg hover:bg-white transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                    >
+                        Suscribirse
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Sección del Feed de Posts con Arquitectura Flat -->
+        <section class="space-y-12">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-zinc-800/50 pb-6">
+                <h2 class="text-2xl font-bold text-white tracking-tight">Bitácora Cronológica</h2>
+                
+                <!-- Filtro minimalista por Tags (Interactividad via JS simple) -->
+                <div class="flex flex-wrap gap-2" id="tag-filters">
+                    <button 
+                        data-tag="all" 
+                        class="tag-btn active-tag text-xs font-semibold px-3 py-1.5 rounded-full border border-[#CCFF00] bg-[#CCFF00] text-[#0A0A0C] transition-all"
+                    >
+                        Todos
+                    </button>
+                    {filterTags.map((tag) => (
+                        <button 
+                            data-tag={tag.toLowerCase()} 
+                            class="tag-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-white transition-all"
+                        >
+                            {tag}
+                        </button>
+                    ))}
+                </div>
+            </div>
+
+            <!-- Listado Flat de Posts -->
+            <div class="space-y-10" id="posts-container">
+                {sortedPosts.map((post) => (
+                    <article 
+                        class="post-item group space-y-3 transition-opacity duration-300" 
+                        data-tags={JSON.stringify(post.data.tags.map(t => t.toLowerCase()))}
+                    >
+                        <div class="flex items-center gap-3 text-xs text-zinc-500">
+                            <time datetime={post.data.pubDate.toISOString()}>
+                                {post.data.pubDate.toLocaleDateString('es-ES', {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric',
+                                })}
+                            </time>
+                            <span>•</span>
+                            <span>{post.data.readingTime}</span>
+                        </div>
+                        
+                        <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-[#CCFF00] transition-colors">
+                            <a href={`/blog/${post.slug}/`}>
+                                {post.data.title}
+                            </a>
+                        </h3>
+                        
+                        <p class="text-sm text-[#94A3B8] leading-relaxed max-w-3xl">
+                            {post.data.description}
+                        </p>
+
+                        <div class="flex gap-2 pt-1">
+                            {post.data.tags.map((tag) => (
+                                <span class="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-800/40">
+                                    #{tag}
+                                </span>
+                            ))}
+                        </div>
+                    </article>
+                ))}
+
+                {sortedPosts.length === 0 && (
+                    <p class="text-sm text-zinc-500 italic py-8">La bitácora está vacía por ahora. Próximamente nuevas píldoras.</p>
+                )}
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="max-w-4xl mx-auto px-6 py-12 mt-24 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4">
+        <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
+        <p class="italic">Construido con Astro y Tailwind CSS de forma modular.</p>
+    </footer>
+
+    <!-- Lógica del Filtro de Tags Minimalista e Instantáneo sin recarga -->
+    <script>
+        const buttons = document.querySelectorAll('.tag-btn');
+        const posts = document.querySelectorAll('.post-item');
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Alternar clases de estilo en los botones
+                buttons.forEach(btn => {
+                    btn.classList.remove('border-[#CCFF00]', 'bg-[#CCFF00]', 'text-[#0A0A0C]');
+                    btn.classList.add('border-zinc-800', 'text-zinc-400');
+                });
+                
+                button.classList.remove('border-zinc-800', 'text-zinc-400');
+                button.classList.add('border-[#CCFF00]', 'bg-[#CCFF00]', 'text-[#0A0A0C]');
+
+                const selectedTag = button.getAttribute('data-tag');
+
+                // Filtrado lógico de los elementos del DOM
+                posts.forEach(post => {
+                    if (selectedTag === 'all') {
+                        (post as HTMLElement).style.display = 'block';
+                        setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
+                    } else {
+                        const postTags = JSON.parse(post.getAttribute('data-tags') || '[]');
+                        if (postTags.includes(selectedTag)) {
+                            (post as HTMLElement).style.display = 'block';
+                            setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
+                        } else {
+                            (post as HTMLElement).style.opacity = '0';
+                            setTimeout(() => (post as HTMLElement).style.display = 'none', 300);
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
