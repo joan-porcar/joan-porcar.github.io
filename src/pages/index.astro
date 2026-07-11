@@ -1,5 +1,4 @@
 ---
-// src/pages/index.astro
 import { getCollection } from 'astro:content';
 
 // 1. Obtener y ordenar los posts de forma cronológica (más recientes primero)
@@ -18,7 +17,6 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
     <title>Joan Porcar | Conectando Puntos</title>
     <meta name="description" content="Espacio de marca personal de Joan Porcar. Trading, mentalidad, tecnología y reflexiones sin filtros desde la trinchera." />
     
-    <!-- Google Fonts: Roboto y una fuente geométrica/moderna para títulos -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -40,7 +38,6 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 </head>
 <body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#CCFF00] selection:text-[#0A0A0C]">
 
-    <!-- Encabezado / Navegación Minimalista -->
     <header class="max-w-4xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50">
         <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#CCFF00] transition-colors">
             joanporcar<span class="text-[#CCFF00]">.com</span>
@@ -53,18 +50,16 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 
     <main class="max-w-4xl mx-auto px-6 py-16 space-y-24">
         
-        <!-- Zona HERO con Formulario de Suscripción -->
         <section class="space-y-8 md:pr-12">
             <div class="space-y-4">
                 <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
                     Conectando puntos en la <span class="text-[#CCFF00]">trinchera</span>.
                 </h1>
                 <p class="text-lg md:text-xl text-[#94A3B8] max-w-2xl leading-relaxed">
-                    Trading, sistemas, comportamiento humano y el caos de la tecnología. No busco darte lecciones de éxito rápido; comparto la realidad cruda de lo que funciona y lo que destruye cuentas y mentes.
+                    Trading, sistemas, comportamiento humano y el caos de la tecnología. No busco darte lecciones de éxito rápido; comparto la reality cruda de lo que funciona y lo que destruye cuentas y mentes.
                 </p>
             </div>
 
-            <!-- Formulario Premium de Captación -->
             <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-xl max-w-xl backdrop-blur-sm space-y-4">
                 <div class="space-y-1">
                     <h3 class="text-white font-semibold text-base">Únete al radar de Joan</h3>
@@ -87,12 +82,10 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
             </div>
         </section>
 
-        <!-- Sección del Feed de Posts con Arquitectura Flat -->
         <section class="space-y-12">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-zinc-800/50 pb-6">
                 <h2 class="text-2xl font-bold text-white tracking-tight">Bitácora Cronológica</h2>
                 
-                <!-- Filtro minimalista por Tags (Interactividad via JS simple) -->
                 <div class="flex flex-wrap gap-2" id="tag-filters">
                     <button 
                         data-tag="all" 
@@ -111,12 +104,11 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
                 </div>
             </div>
 
-            <!-- Listado Flat de Posts -->
             <div class="space-y-10" id="posts-container">
                 {sortedPosts.map((post) => (
                     <article 
                         class="post-item group space-y-3 transition-opacity duration-300" 
-                        data-tags={JSON.stringify(post.data.tags.map(t => t.toLowerCase()))}
+                        data-tags={JSON.stringify(post.data.tags ? post.data.tags.map(t => t.toLowerCase()) : [])}
                     >
                         <div class="flex items-center gap-3 text-xs text-zinc-500">
                             <time datetime={post.data.pubDate.toISOString()}>
@@ -127,7 +119,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
                                 })}
                             </time>
                             <span>•</span>
-                            <span>{post.data.readingTime}</span>
+                            <span>{post.data.readingTime || '5 min lectura'}</span>
                         </div>
                         
                         <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-[#CCFF00] transition-colors">
@@ -141,7 +133,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
                         </p>
 
                         <div class="flex gap-2 pt-1">
-                            {post.data.tags.map((tag) => (
+                            {post.data.tags && post.data.tags.map((tag) => (
                                 <span class="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-800/40">
                                     #{tag}
                                 </span>
@@ -158,20 +150,17 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 
     </main>
 
-    <!-- Footer -->
     <footer class="max-w-4xl mx-auto px-6 py-12 mt-24 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4">
         <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
         <p class="italic">Construido con Astro y Tailwind CSS de forma modular.</p>
     </footer>
 
-    <!-- Lógica del Filtro de Tags Minimalista e Instantáneo sin recarga -->
     <script>
         const buttons = document.querySelectorAll('.tag-btn');
         const posts = document.querySelectorAll('.post-item');
 
         buttons.forEach(button => {
             button.addEventListener('click', () => {
-                // Alternar clases de estilo en los botones
                 buttons.forEach(btn => {
                     btn.classList.remove('border-[#CCFF00]', 'bg-[#CCFF00]', 'text-[#0A0A0C]');
                     btn.classList.add('border-zinc-800', 'text-zinc-400');
@@ -182,19 +171,18 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 
                 const selectedTag = button.getAttribute('data-tag');
 
-                // Filtrado lógico de los elementos del DOM
                 posts.forEach(post => {
                     if (selectedTag === 'all') {
-                        (post as HTMLElement).style.display = 'block';
-                        setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
+                        post.style.display = 'block';
+                        setTimeout(() => post.style.opacity = '1', 10);
                     } else {
                         const postTags = JSON.parse(post.getAttribute('data-tags') || '[]');
                         if (postTags.includes(selectedTag)) {
-                            (post as HTMLElement).style.display = 'block';
-                            setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
+                            post.style.display = 'block';
+                            setTimeout(() => post.style.opacity = '1', 10);
                         } else {
-                            (post as HTMLElement).style.opacity = '0';
-                            setTimeout(() => (post as HTMLElement).style.display = 'none', 300);
+                            post.style.opacity = '0';
+                            setTimeout(() => post.style.display = 'none', 300);
                         }
                     }
                 });
