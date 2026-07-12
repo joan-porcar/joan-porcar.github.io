@@ -108,18 +108,18 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
             <div class="lg:col-span-5 flex justify-center lg:justify-end">
                 <div class="relative p-3 rounded-[2.5rem] bg-gradient-to-tr from-zinc-800/60 to-slate-700/30 border border-slate-700/50 shadow-2xl max-w-sm w-full group">
                     <div class="overflow-hidden rounded-[2rem] bg-zinc-950 aspect-[4/5] relative">
-                        <!-- Ruta corregida apuntando exactamente a joan_blog.JPG -->
+                        <!-- Nombre de archivo actualizado a Joan Porcar.png -->
                         <img 
-                            src="/images/joan_blog.JPG" 
+                            src="/images/Joan Porcar.png" 
                             alt="Joan Porcar" 
                             class="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
                             loading="eager"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                         />
-                        <!-- Fallback visual inteligente si la imagen aún no está en la carpeta -->
+                        <!-- Fallback visual si el servidor de compilación no encuentra el archivo estático -->
                         <div class="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center text-xs text-zinc-500 bg-zinc-900/80">
-                            <span class="text-[#38BDF8] font-bold mb-2 text-sm">joan_blog.JPG</span>
-                            Sube tu retrato en GitHub a: <br/><code class="mt-1 p-1 bg-black rounded text-[#94A3B8]">public/images/joan_blog.JPG</code>
+                            <span class="text-[#38BDF8] font-bold mb-2 text-sm">Joan Porcar.png</span>
+                            Verifica que la carpeta <code class="text-white">public</code> esté fuera de <code class="text-white">src</code> y que el archivo se llame exactamente igual.
                         </div>
                     </div>
                     <!-- Etiqueta flotante inferior del retrato -->
