@@ -55,7 +55,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 </head>
 <body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#38BDF8] selection:text-[#020617]">
 
-    <header class="max-w-4xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50">
+    <header class="max-w-5xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50">
         <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#38BDF8] transition-colors">
             joanporcar<span class="text-[#38BDF8]">.com</span>
         </a>
@@ -65,41 +65,73 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
         </nav>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 py-16 space-y-24">
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">
         
-        <section class="space-y-8 md:pr-12">
-            <div class="space-y-4">
-                <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
-                    Conectando puntos en la <span class="text-[#38BDF8]">trinchera</span>.
-                </h1>
-                <p class="text-lg md:text-xl text-[#94A3B8] max-w-2xl leading-relaxed">
-                    Comparto mi forma de ver la vida. Cruda, apasionante, divertida y a la contra. Escribo sobre mercados, trading, comportamiento humano, comunidad y tecnología.
-                </p>
+        <!-- Zona HERO: Estructura Asimétrica en 2 Columnas (Estilo Seth Godin) -->
+        <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Columna Izquierda: Mensajes, Filosofía y Captación (7/12) -->
+            <div class="lg:col-span-7 space-y-8">
+                <div class="space-y-4">
+                    <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
+                        Conectando puntos en la <span class="text-[#38BDF8]">trinchera</span>.
+                    </h1>
+                    <p class="text-lg md:text-xl text-[#94A3B8] leading-relaxed">
+                        Comparto mi forma de ver la vida. Cruda, apasionante, divertida y a la contra. Escribo sobre mercados, trading, comportamiento humano, comunidad y tecnología[cite: 1].
+                    </p>
+                </div>
+
+                <!-- Caja de suscripción con blur sutil integrado con el fondo azul metálico -->
+                <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-xl backdrop-blur-sm space-y-4 shadow-xl shadow-black/30">
+                    <div class="space-y-1">
+                        <h3 class="text-white font-semibold text-base">Si te gusta 👉 <span class="not-italic font-normal"><em>Directo</em></span> a tu bandeja</h3>
+                        <p class="text-xs text-zinc-400">Píldoras directas y contenido fresco, libre de alérgenos. Cero spam[cite: 1].</p>
+                    </div>
+                    <form class="flex flex-col sm:flex-row gap-3">
+                        <input 
+                            type="email" 
+                            required 
+                            placeholder="Tu email principal..." 
+                            class="flex-1 bg-[#0A0A0C]/80 border border-zinc-700 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#38BDF8] transition-colors"
+                        />
+                        <button 
+                            type="submit" 
+                            class="bg-[#38BDF8] text-[#020617] font-bold text-sm px-6 py-3 rounded-lg hover:bg-white transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-[#38BDF8]/10"
+                        >
+                            Suscribirse
+                        </button>
+                    </form>
+                </div>
             </div>
 
-            <!-- Caja con blur sutil integrado con el degradado azul metálico -->
-            <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-xl max-w-xl backdrop-blur-sm space-y-4 shadow-xl shadow-black/30">
-                <div class="space-y-1">
-                    <h3 class="text-white font-semibold text-base">Si te gusta 👉 <em class="not-italic font-normal"><em>Directo</em></em> a tu bandeja</h3>
-                    <p class="text-xs text-zinc-400">Píldoras directas y contenido fresco, libre de alérgenos. Cero spam.</p>
+            <!-- Columna Derecha: Contenedor de Retrato Estilizado (5/12) -->
+            <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                <div class="relative p-3 rounded-[2.5rem] bg-gradient-to-tr from-zinc-800/60 to-slate-700/30 border border-slate-700/50 shadow-2xl max-w-sm w-full group">
+                    <div class="overflow-hidden rounded-[2rem] bg-zinc-950 aspect-[4/5] relative">
+                        <!-- Ruta corregida apuntando exactamente a joan_blog.JPG -->
+                        <img 
+                            src="/images/joan_blog.JPG" 
+                            alt="Joan Porcar" 
+                            class="w-full h-full object-cover grayscale contrast-125 brightness-90 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700"
+                            loading="eager"
+                            onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                        />
+                        <!-- Fallback visual inteligente si la imagen aún no está en la carpeta -->
+                        <div class="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center text-xs text-zinc-500 bg-zinc-900/80">
+                            <span class="text-[#38BDF8] font-bold mb-2 text-sm">joan_blog.JPG</span>
+                            Sube tu retrato en GitHub a: <br/><code class="mt-1 p-1 bg-black rounded text-[#94A3B8]">public/images/joan_blog.JPG</code>
+                        </div>
+                    </div>
+                    <!-- Etiqueta flotante inferior del retrato -->
+                    <div class="absolute bottom-6 left-1/2 transform -translate-x-1/2 bg-zinc-950/90 backdrop-blur-md border border-zinc-800 px-4 py-1.5 rounded-full text-[10px] font-bold tracking-wider text-zinc-400 uppercase whitespace-nowrap">
+                        Joan Porcar &bull; Darwinex Zero
+                    </div>
                 </div>
-                <form class="flex flex-col sm:flex-row gap-3">
-                    <input 
-                        type="email" 
-                        required 
-                        placeholder="Tu email principal..." 
-                        class="flex-1 bg-[#0A0A0C]/80 border border-zinc-700 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#38BDF8] transition-colors"
-                    />
-                    <button 
-                        type="submit" 
-                        class="bg-[#38BDF8] text-[#020617] font-bold text-sm px-6 py-3 rounded-lg hover:bg-white transition-all transform hover:-translate-y-0.5 active:translate-y-0"
-                    >
-                        Suscribirse
-                    </button>
-                </form>
             </div>
+            
         </section>
 
+        <!-- Feed de Posts Cronológico -->
         <section class="space-y-12">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-zinc-800/50 pb-6">
                 <h2 class="text-2xl font-bold text-white tracking-tight">Bitácora Cronológica</h2>
@@ -168,7 +200,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 
     </main>
 
-    <footer class="max-w-4xl mx-auto px-6 py-12 mt-24 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4">
+    <footer class="max-w-5xl mx-auto px-6 py-12 mt-24 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4">
         <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
         <p class="italic">Construido con Astro y Tailwind CSS de forma modular <span class="not-italic">(y con mucha paciencia 😉)</span>.</p>
     </footer>
