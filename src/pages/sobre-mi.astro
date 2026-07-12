@@ -1,0 +1,77 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Sobre mí | Joan Porcar">
+  <main class="min-h-screen bg-gradient-to-br from-[#0F172A] via-[#0A0A0C] to-[#020617] text-[#94A3B8] font-['Roboto'] selection:bg-[#38BDF8] selection:text-[#020617] pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-4xl mx-auto">
+      
+      <!-- HEADER DE LA PÁGINA -->
+      <header class="mb-16 border-b border-[#38BDF8]/10 pb-8">
+        <h1 class="text-4xl sm:text-5xl font-['Plus_Jakarta_Sans'] font-bold text-white tracking-tight mb-4">
+          Detrás de la pantalla. <span class="text-[#38BDF8] italic">Sin filtros.</span>
+        </h1>
+        <p class="text-lg text-[#94A3B8] max-w-2xl leading-relaxed">
+          Una radiografía honesta sobre quién soy, qué hago y por qué no creo en las fórmulas mágicas de éxito rápido.
+        </p>
+      </header>
+
+      <!-- BLOQUE 1: INTRODUCCIÓN Y ENFOQUE (TEXTO IZQ - FOTO DER) -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20">
+        <div class="space-y-4">
+          <h2 class="text-2xl font-['Plus_Jakarta_Sans'] font-semibold text-white tracking-wide">
+            En la trinchera, no en el podio
+          </h2>
+          <p class="leading-relaxed">
+            El trading, el mindset y la vida real son entornos complejos. No estoy aquí para decirte que generar consistencia o construir comunidades es un camino lineal y sencillo. Estoy aquí para contarte cómo sobreviví cuando las cosas se pusieron realmente difíciles.
+          </p>
+          <p class="leading-relaxed">
+            Como community developer en entornos de alto rendimiento financiero (Darwinex / Darwinex Zero), convivo a diario con la gestión de expectativas, la psicología de masas y la arquitectura de plataformas meritocráticas. Mi día a día consiste en conectar puntos.
+          </p>
+        </div>
+        <div class="relative group">
+          <div class="absolute -inset-1 bg-gradient-to-r from-[#38BDF8] to-purple-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+          <div class="relative aspect-square w-full rounded-lg bg-[#0F172A] border border-[#38BDF8]/20 flex items-center justify-center overflow-hidden">
+            <!-- Reemplazar src con tu foto personal (ej. /images/joan-profile-1.jpg) -->
+            <span class="text-xs text-[#38BDF8]/50 uppercase tracking-widest font-mono">[ Foto: Joan - Gestión & Estrategia ]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- BLOQUE 2: FILOSOFÍA MENTAL (FOTO IZQ - TEXTO DER) -->
+      <section class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center mb-20 md:rtl">
+        <!-- Truco de accesibilidad/orden: El texto se lee normal en responsive pero se invierte visualmente en desktop -->
+        <div class="space-y-4 md:ltr">
+          <h2 class="text-2xl font-['Plus_Jakarta_Sans'] font-semibold text-white tracking-wide">
+            Conectando puntos entre disciplinas
+          </h2>
+          <p class="leading-relaxed">
+            Me fascina entender los patrones del comportamiento humano, la neurociencia aplicada a la toma de decisiones bajo presión y el impacto real de la Inteligencia Artificial en nuestra estructura socioeconómica. No entiendo el conocimiento como cajones estancos.
+          </p>
+          <p class="leading-relaxed">
+            Cuando analizo un gráfico de trading o diseño la estrategia de comunicación de un ecosistema digital, utilizo las mismas herramientas: análisis crítico, ausencia de sesgos cognitivos y una dosis saludable de escepticismo e ironía frente al ruido del mercado.
+          </p>
+        </div>
+        <div class="relative group md:ltr">
+          <div class="absolute -inset-1 bg-gradient-to-r from-purple-600 to-[#38BDF8] rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
+          <div class="relative aspect-[4/3] w-full rounded-lg bg-[#0F172A] border border-[#38BDF8]/20 flex items-center justify-center overflow-hidden">
+            <!-- Reemplazar src con tu foto (ej. /images/joan-profile-2.jpg) -->
+            <span class="text-xs text-[#38BDF8]/50 uppercase tracking-widest font-mono">[ Foto: Entorno de operaciones / Ponencia ]</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- PIE DE PÁGINA ESPECÍFICO -->
+      <footer class="mt-16 pt-8 border-t border-[#38BDF8]/10 text-xs text-[#94A3B8]/60 flex flex-col sm:flex-row justify-between items-center gap-4">
+        <div>
+          <span>© 2026 Joan Porcar.</span>
+          <span class="not-italic ml-1">(Todos los textos están destilados bajo principios de cruda realidad).</span>
+        </div>
+        <div class="flex space-x-4">
+          <a href="/" class="text-[#38BDF8] hover:underline">Volver al inicio</a>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+</Layout>
