@@ -40,27 +40,27 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
   <style>
       body {
           font-family: 'Roboto', sans-serif;
-          /* Refinamiento visual: Degradado azul metálico profundo a negro mate */
+          /* Base: Degradado azul metálico profundo a negro mate */
           background: linear-gradient(135deg, #0F172A 0%, #0A0A0C 60%, #020617 100%);
       }
       h1, h2, h3, h4 {
           font-family: 'Plus Jakarta Sans', sans-serif;
       }
-      /* Selección de texto adaptada al nuevo verde lima oscuro */
+      /* Selección de texto adaptada al nuevo azul celeste metálico */
       ::selection {
-          background-color: #99C200;
-          color: #0A0A0C;
+          background-color: #38BDF8;
+          color: #020617;
       }
   </style>
 </head>
-<body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#99C200] selection:text-[#0A0A0C]">
+<body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#38BDF8] selection:text-[#020617]">
 
     <header class="max-w-4xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50">
-        <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#99C200] transition-colors">
-            joanporcar<span class="text-[#99C200]">.com</span>
+        <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#38BDF8] transition-colors">
+            joanporcar<span class="text-[#38BDF8]">.com</span>
         </a>
         <nav class="flex gap-6 text-sm font-medium">
-            <a href="/" class="text-[#99C200] transition-colors">Inicio</a>
+            <a href="/" class="text-[#38BDF8] transition-colors">Inicio</a>
             <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors">GitHub</a>
         </nav>
     </header>
@@ -70,7 +70,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
         <section class="space-y-8 md:pr-12">
             <div class="space-y-4">
                 <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
-                    Conectando puntos en la <span class="text-[#99C200]">trinchera</span>.
+                    Conectando puntos en la <span class="text-[#38BDF8]">trinchera</span>.
                 </h1>
                 <p class="text-lg md:text-xl text-[#94A3B8] max-w-2xl leading-relaxed">
                     Comparto mi forma de ver la vida. Cruda, apasionante, divertida y a la contra[cite: 1]. Escribo sobre mercados, trading, comportamiento humano, comunidad y tecnología[cite: 1].
@@ -88,11 +88,11 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
                         type="email" 
                         required 
                         placeholder="Tu email principal..." 
-                        class="flex-1 bg-[#0A0A0C]/80 border border-zinc-700 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#99C200] transition-colors"
+                        class="flex-1 bg-[#0A0A0C]/80 border border-zinc-700 rounded-lg px-4 py-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:border-[#38BDF8] transition-colors"
                     />
                     <button 
                         type="submit" 
-                        class="bg-[#99C200] text-[#0A0A0C] font-bold text-sm px-6 py-3 rounded-lg hover:bg-white transition-all transform hover:-translate-y-0.5 active:translate-y-0"
+                        class="bg-[#38BDF8] text-[#020617] font-bold text-sm px-6 py-3 rounded-lg hover:bg-white transition-all transform hover:-translate-y-0.5 active:translate-y-0"
                     >
                         Suscribirse
                     </button>
@@ -107,7 +107,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
                 <div class="flex flex-wrap gap-2" id="tag-filters">
                     <button 
                         data-tag="all" 
-                        class="tag-btn active-tag text-xs font-semibold px-3 py-1.5 rounded-full border border-[#99C200] bg-[#99C200] text-[#0A0A0C] transition-all"
+                        class="tag-btn active-tag text-xs font-semibold px-3 py-1.5 rounded-full border border-[#38BDF8] bg-[#38BDF8] text-[#020617] transition-all"
                     >
                         Todos
                     </button>
@@ -140,7 +140,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
                             <span>{post.data.readingTime || '5 min lectura'}</span>
                         </div>
                         
-                        <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-[#99C200] transition-colors">
+                        <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-[#38BDF8] transition-colors">
                             <a href={`/blog/${post.slug}/`}>
                                 {post.data.title}
                             </a>
@@ -152,7 +152,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 
                         <div class="flex gap-2 pt-1">
                             {post.data.tags && post.data.tags.map((tag) => (
-                                <span class="text-[10px] tracking-wider uppercase font-semibold text-zinc-500 bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-800/40">
+                                <span class="text-[10px] tracking-wider uppercase font-semibold text-zinc-400 bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-800/40">
                                     #{tag}
                                 </span>
                             ))}
@@ -170,7 +170,7 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
 
     <footer class="max-w-4xl mx-auto px-6 py-12 mt-24 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4">
         <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
-        <p class="italic">Construido con Astro y Tailwind CSS de forma modular (y con mucha paciencia 😉).</p>
+        <p class="italic">Construido con Astro y Tailwind CSS de forma modular <span class="not-italic">(y con mucha paciencia 😉)</span>.</p>
     </footer>
 
     <script>
@@ -180,12 +180,12 @@ const filterTags = ['Trading', 'Mindset', 'Tecnología', 'Reflexiones'];
         buttons.forEach(button => {
             button.addEventListener('click', () => {
                 buttons.forEach(btn => {
-                    btn.classList.remove('border-[#99C200]', 'bg-[#99C200]', 'text-[#0A0A0C]');
+                    btn.classList.remove('border-[#38BDF8]', 'bg-[#38BDF8]', 'text-[#020617]');
                     btn.classList.add('border-zinc-800', 'text-zinc-400');
                 });
                 
                 button.classList.remove('border-zinc-800', 'text-zinc-400');
-                button.classList.add('border-[#99C200]', 'bg-[#99C200]', 'text-[#0A0A0C]');
+                button.classList.add('border-[#38BDF8]', 'bg-[#38BDF8]', 'text-[#020617]');
 
                 const selectedTag = button.getAttribute('data-tag');
 
