@@ -1,0 +1,105 @@
+---
+// src/layouts/Layout.astro
+interface Props {
+  title: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  maxWidth?: '3xl' | '4xl' | '5xl';
+}
+
+const { 
+  title, 
+  description = "La bitácora personal de Joan Porcar (Darwinex). Descodifico DARWINs, sistemas, sesgos y la cruda realidad de la industria. Escribo sobre mercados, tecnología y mi forma de ver la vida.", 
+  canonical, 
+  ogImage = "https://joanporcar.com/og-image.jpg",
+  maxWidth = "5xl"
+} = Astro.props;
+
+const canonicalURL = canonical || `https://joanporcar.com${Astro.url.pathname}`;
+
+const maxWidthClasses = {
+  '3xl': 'max-w-3xl',
+  '4xl': 'max-w-4xl',
+  '5xl': 'max-w-5xl'
+};
+const maxWidthClass = maxWidthClasses[maxWidth] || 'max-w-5xl';
+
+const pathname = Astro.url.pathname;
+const isHome = pathname === '/' || pathname === '';
+const isSobreMi = pathname.startsWith('/sobre-mi');
+const isContacto = pathname.startsWith('/contacto');
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- SEO Básico -->
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonicalURL} />
+
+  <!-- Open Graph / Redes Sociales -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={ogImage} />
+
+  <!-- Twitter / X -->
+  <meta property="twitter:card" content="summary_large_image" />
+  <meta property="twitter:url" content={canonicalURL} />
+  <meta property="twitter:title" content={title} />
+  <meta property="twitter:description" content={description} />
+  <meta property="twitter:image" content={ogImage} />
+
+  <!-- Fuentes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+  
+  <style is:global>
+      body {
+          font-family: 'Roboto', sans-serif;
+          /* Degradado azul metálico profundo a negro mate */
+          background: linear-gradient(135deg, #0F172A 0%, #0A0A0C 60%, #020617 100%);
+      }
+      h1, h2, h3, h4 {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+      }
+      /* Selección de texto adaptada al nuevo azul celeste metálico */
+      ::selection {
+          background-color: #38BDF8;
+          color: #020617;
+      }
+  </style>
+</head>
+<body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#38BDF8] selection:text-[#020617] flex flex-col justify-between">
+
+    <!-- Header / Navbar Global -->
+    <header class={`w-full ${maxWidthClass} mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50`}>
+        <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#38BDF8] transition-colors">
+            joanporcar<span class="text-[#38BDF8]">.com</span>
+        </a>
+        <nav class="flex gap-6 text-sm font-medium font-['Plus_Jakarta_Sans'] tracking-wide">
+            <a href="/" class={isHome ? "text-white transition-colors" : "text-[#94A3B8] hover:text-[#38BDF8] transition-colors"}>Inicio</a>
+            <a href="/sobre-mi" class={isSobreMi ? "text-white transition-colors" : "text-[#94A3B8] hover:text-[#38BDF8] transition-colors"}>Sobre mí</a>
+            <a href="/contacto" class={isContacto ? "text-white transition-colors" : "text-[#94A3B8] hover:text-[#38BDF8] transition-colors"}>Contacto</a>
+        </nav>
+    </header>
+
+    <!-- Slot Principal -->
+    <div class="flex-grow">
+        <slot />
+    </div>
+
+    <!-- Footer Global -->
+    <footer class={`w-full ${maxWidthClass} mx-auto px-6 py-12 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4`}>
+        <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
+        <p class="italic">Construido con Astro y Tailwind CSS.</p>
+    </footer>
+
+</body>
+</html>

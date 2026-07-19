@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
 
 // 1. Obtener y ordenar los posts de forma cronológica (más recientes primero)
 const allPosts = await getCollection('blog');
@@ -8,65 +9,8 @@ const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pu
 // Tags principales definidos para el filtrado minimalista
 const filterTags = ['Trading', 'Mindset', 'DARWINs', 'Tecnología', 'Reflexiones'];
 ---
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- SEO Básico -->
-  <title>Joan Porcar | Trading, Mercados y Comportamiento Humano</title>
-  <meta name="description" content="La bitácora personal de Joan Porcar (Darwinex). Comparto mi forma de ver la vida: cruda, apasionante, divertida y a la contra. Un ensayo abierto sobre trading, sistemas, mercados, comportamiento humano y tecnología." />
-  <link rel="canonical" href="https://joanporcar.com" />
-
-  <!-- Open Graph / Facebook / LinkedIn -->
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://joanporcar.com" />
-  <meta property="og:title" content="Joan Porcar | Trading, Mercados, Tecnología y Comportamiento Humano" />
-  <meta property="og:description" content="La bitácora personal de Joan Porcar (Darwinex). Comparto mi forma de ver la vida: cruda, apasionante, divertida y a la contra." />
-  <meta property="og:image" content="https://joanporcar.com/og-image.jpg" />
-
-  <!-- Twitter / X -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content="https://joanporcar.com" />
-  <meta property="twitter:title" content="Joan Porcar | Trading, Mercados, Tecnología y Comportamiento Humano" />
-  <meta property="twitter:description" content="La bitácora personal de Joan Porcar (Darwinex). Comparto mi forma de ver la vida: cruda, apasionante, divertida y a la contra." />
-
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
-  
-  <style>
-      body {
-          font-family: 'Roboto', sans-serif;
-          /* Base: Degradado azul metálico profundo a negro mate */
-          background: linear-gradient(135deg, #0F172A 0%, #0A0A0C 60%, #020617 100%);
-      }
-      h1, h2, h3, h4 {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-      }
-      /* Selección de texto adaptada al nuevo azul celeste metálico */
-      ::selection {
-          background-color: #38BDF8;
-          color: #020617;
-      }
-  </style>
-</head>
-<body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#38BDF8] selection:text-[#020617]">
-
-    <header class="max-w-5xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50">
-        <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#38BDF8] transition-colors">
-            joanporcar<span class="text-[#38BDF8]">.com</span>
-        </a>
-        <nav class="flex gap-6 text-sm font-medium font-['Plus_Jakarta_Sans'] tracking-wide">
-  <a href="/" class="text-white hover:text-[#38BDF8] transition-colors">Inicio</a>
-  <a href="/sobre-mi" class="text-[#94A3B8] hover:text-[#38BDF8] transition-colors">Sobre mí</a>
-  <a href="/contacto" class="text-[#94A3B8] hover:text-[#38BDF8] transition-colors">Contacto</a>
-</nav>
-    </header>
-
-    <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">
+<Layout title="Joan Porcar | Trading, Mercados y Comportamiento Humano">
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">6 space-y-24">
         
         <!-- Zona HERO: Estructura Asimétrica en 2 Columnas (Estilo Seth Godin) -->
         <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -196,11 +140,6 @@ const filterTags = ['Trading', 'Mindset', 'DARWINs', 'Tecnología', 'Reflexiones
 
     </main>
 
-    <footer class="max-w-5xl mx-auto px-6 py-12 mt-24 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4">
-        <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
-        <p class="italic">Construido con Astro y Tailwind CSS de forma modular <span class="not-italic">(y con mucha paciencia 😉)</span>.</p>
-    </footer>
-
     <script>
         const buttons = document.querySelectorAll('.tag-btn');
         const posts = document.querySelectorAll('.post-item');
@@ -219,21 +158,20 @@ const filterTags = ['Trading', 'Mindset', 'DARWINs', 'Tecnología', 'Reflexiones
 
                 posts.forEach(post => {
                     if (selectedTag === 'all') {
-                        post.style.display = 'block';
-                        setTimeout(() => post.style.opacity = '1', 10);
+                        (post as HTMLElement).style.display = 'block';
+                        setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
                     } else {
                         const postTags = JSON.parse(post.getAttribute('data-tags') || '[]');
                         if (postTags.includes(selectedTag)) {
-                            post.style.display = 'block';
-                            setTimeout(() => post.style.opacity = '1', 10);
+                            (post as HTMLElement).style.display = 'block';
+                            setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
                         } else {
-                            post.style.opacity = '0';
-                            setTimeout(() => post.style.display = 'none', 300);
+                            (post as HTMLElement).style.opacity = '0';
+                            setTimeout(() => (post as HTMLElement).style.display = 'none', 300);
                         }
                     }
                 });
             });
         });
     </script>
-</body>
-</html>
+</Layout>

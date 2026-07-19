@@ -1,6 +1,7 @@
 ---
 // src/pages/blog/[slug].astro
 import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
 
 // 1. Generar las rutas dinámicas para cada post en base a su slug
 export async function getStaticPaths() {
@@ -22,40 +23,12 @@ const formattedDate = entry.data.pubDate.toLocaleDateString('es-ES', {
 });
 ---
 
-<!DOCTYPE html>
-<html lang="es">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <!-- SEO Dinámico -->
-  <title>{entry.data.title} | Joan Porcar</title>
-  <meta name="description" content={entry.data.description} />
-  <link rel="canonical" href={`https://joanporcar.com/blog/${entry.slug}/`} />
-
-  <!-- Open Graph / Redes Sociales -->
-  <meta property="og:type" content="article" />
-  <meta property="og:url" content={`https://joanporcar.com/blog/${entry.slug}/`} />
-  <meta property="og:title" content={`${entry.data.title} | Joan Porcar`} />
-  <meta property="og:description" content={entry.data.description} />
-
-  <!-- Fuentes -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
-  
+<Layout 
+  title={`${entry.data.title} | Joan Porcar`} 
+  description={entry.data.description} 
+  maxWidth="3xl"
+>
   <style>
-      body {
-          font-family: 'Roboto', sans-serif;
-          background: linear-gradient(135deg, #0F172A 0%, #0A0A0C 60%, #020617 100%);
-      }
-      h1, h2, h3, h4 {
-          font-family: 'Plus Jakarta Sans', sans-serif;
-      }
-      ::selection {
-          background-color: #38BDF8;
-          color: #020617;
-      }
       /* Estilos específicos para inyectar el diseño premium al HTML renderizado desde Markdown */
       .prose p {
           margin-bottom: 1.5rem;
@@ -106,18 +79,6 @@ const formattedDate = entry.data.pubDate.toLocaleDateString('es-ES', {
           color: #E2E8F0;
       }
   </style>
-</head>
-<body class="text-[#94A3B8] antialiased min-h-screen selection:bg-[#38BDF8] selection:text-[#020617]">
-
-    <!-- Navbar Minimalista -->
-    <header class="max-w-3xl mx-auto px-6 py-8 flex justify-between items-center border-b border-zinc-800/50">
-        <a href="/" class="text-white font-bold text-xl tracking-tight hover:text-[#38BDF8] transition-colors">
-            joanporcar<span class="text-[#38BDF8]">.com</span>
-        </a>
-        <nav class="flex gap-6 text-sm font-medium">
-            <a href="/" class="hover:text-[#38BDF8] transition-colors">Inicio</a>
-        </nav>
-    </header>
 
     <!-- Contenedor Principal del Post -->
     <main class="max-w-3xl mx-auto px-6 py-16 space-y-10">
@@ -181,12 +142,4 @@ const formattedDate = entry.data.pubDate.toLocaleDateString('es-ES', {
         </footer>
 
     </main>
-
-    <!-- Footer General -->
-    <footer class="max-w-3xl mx-auto px-6 py-12 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4">
-        <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
-        <p class="italic">Construido con Astro y Tailwind CSS de forma modular <span class="not-italic">(y con mucha paciencia 😉)</span>.</p>
-    </footer>
-
-</body>
-</html>
+</Layout>

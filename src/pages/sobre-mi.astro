@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Sobre mí | Joan Porcar">
-  <main class="min-h-screen bg-gradient-to-br from-[#0F172A] via-[#0A0A0C] to-[#020617] text-[#94A3B8] font-['Roboto'] selection:bg-[#38BDF8] selection:text-[#020617] pt-24 pb-16 px-4 sm:px-6 lg:px-8">
+  <main class="py-16 px-4 sm:px-6 lg:px-8">
     <div class="max-w-4xl mx-auto">
       
       <!-- HEADER DE LA PÁGINA -->
@@ -61,16 +61,10 @@ import Layout from '../layouts/Layout.astro';
         </div>
       </section>
 
-      <!-- PIE DE PÁGINA ESPECÍFICO -->
-      <footer class="mt-16 pt-8 border-t border-[#38BDF8]/10 text-xs text-[#94A3B8]/60 flex flex-col sm:flex-row justify-between items-center gap-4">
-        <div>
-          <span>© 2026 Joan Porcar.</span>
-          <span class="not-italic ml-1">(Todos los textos están destilados bajo principios de cruda realidad).</span>
-        </div>
-        <div class="flex space-x-4">
-          <a href="/" class="text-[#38BDF8] hover:underline">Volver al inicio</a>
-        </div>
-      </footer>
+      <!-- NOTA DE CIERRE ESPECÍFICA -->
+      <div class="mt-16 pt-8 border-t border-[#38BDF8]/10 text-center text-xs text-[#94A3B8]/40 italic">
+        Todos los textos están destilados bajo principios de cruda realidad.
+      </div>
 
     </div>
   </main>
