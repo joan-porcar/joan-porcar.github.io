@@ -1,56 +1,93 @@
 ---
-import { getCollection } from 'astro:content';
-import Layout from '../layouts/Layout.astro';
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
 
 // 1. Obtener y ordenar los posts de forma cronológica (más recientes primero)
-const allPosts = await getCollection('blog');
-const sortedPosts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
 
 // Tags principales definidos para el filtrado minimalista
-const filterTags = ['Trading', 'Mindset', 'DARWINs', 'Tecnología', 'Reflexiones'];
+const filterTags = [
+    "Trading",
+    "Mindset",
+    "DARWINs",
+    "Tecnología",
+    "Reflexiones",
+];
 ---
+
 <Layout title="Joan Porcar | Trading, Mercados y Comportamiento Humano">
     <main class="max-w-5xl mx-auto px-6 py-16 space-y-24">
-        
         <!-- Zona HERO: Estructura Asimétrica en 2 Columnas (Estilo Seth Godin) -->
         <section class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
             <!-- Columna Izquierda: Mensajes, Filosofía y Captación (7/12) -->
             <div class="lg:col-span-7 space-y-8">
                 <div class="space-y-4">
-                    <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none">
-                        Conectando puntos desde la <span class="text-[#38BDF8]">trinchera</span>.
+                    <h1
+                        class="text-4xl md:text-6xl font-bold text-white tracking-tight leading-none"
+                    >
+                        Conectando puntos desde la <span class="text-[#38BDF8]"
+                            >trinchera</span
+                        >.
                     </h1>
-                    <p class="text-lg md:text-xl text-[#94A3B8] leading-relaxed">
-                        Descodifico DARWINs, sistemas de trading, sesgos y la cruda realidad de la industria. Escribo sobre mercados, tecnología y mi forma de ver la vida.
+                    <p
+                        class="text-lg md:text-xl text-[#94A3B8] leading-relaxed"
+                    >
+                        Descodifico DARWINs, sistemas de trading, sesgos y la
+                        cruda realidad de la industria. Escribo sobre mercados,
+                        tecnología y mi forma de ver la vida.
                     </p>
                 </div>
 
                 <!-- Caja de suscripción con blur sutil integrado con el fondo azul metálico -->
-                <div class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-xl backdrop-blur-sm space-y-4 shadow-xl shadow-black/30">
+                <div
+                    class="p-6 bg-zinc-900/40 border border-zinc-800/80 rounded-xl backdrop-blur-sm space-y-4 shadow-xl shadow-black/30"
+                >
                     <div class="space-y-1">
-                        <h3 class="text-white font-semibold text-base">Si te gusta 👉 <span class="not-italic font-normal"><em>Directo</em></span> a tu WhatsApp</h3>
-                        <p class="text-xs text-zinc-400">Píldoras directas y contenido fresco, libre de alérgenos. Cero spam.</p>
+                        <h3 class="text-white font-semibold text-base">
+                            Si te gusta 👉 <span class="not-italic font-normal"
+                                ><em>Directo</em></span
+                            > a tu WhatsApp
+                        </h3>
+                        <p class="text-xs text-zinc-400">
+                            Píldoras directas y contenido fresco, libre de
+                            alérgenos. Cero spam.
+                        </p>
                     </div>
-                    <a 
-                        href="https://whatsapp.com/channel/TU_CANAL_AQUI" 
-                        target="_blank" 
-                        rel="noopener noreferrer" 
+                    <a
+                        href="https://whatsapp.com/channel/TU_CANAL_AQUI"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         class="flex items-center justify-center gap-2 w-full bg-[#38BDF8] text-[#020617] font-bold text-sm px-6 py-3.5 rounded-lg hover:bg-white transition-all transform hover:-translate-y-0.5 active:translate-y-0 shadow-lg shadow-[#38BDF8]/10"
                     >
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 fill-current" viewBox="0 0 24 24">
-                            <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.403.002 9.803-4.381 9.805-9.768.001-2.61-1.01-5.064-2.848-6.905C16.386 2.091 13.937 1.08 11.332 1.08 5.932 1.08 1.533 5.461 1.531 10.849c-.001 1.54.417 3.047 1.214 4.38l-.999 3.648 3.73-.977l-.001-.001zM17.432 14.1c-.318-.159-1.883-.93-2.174-1.036-.291-.106-.503-.159-.715.159-.211.318-.82.103-1.006.318-.185.215-.37.24-.688.082-.318-.159-1.341-.494-2.55-1.577-.94-.84-1.575-1.878-1.76-2.196-.185-.318-.02-.489.14-.647.143-.142.318-.371.477-.557.16-.186.212-.318.318-.53.106-.212.053-.397-.026-.557-.08-.159-.715-1.724-.98-2.36-.258-.62-.522-.536-.715-.546-.185-.01-.397-.012-.609-.012s-.556.08-.847.397c-.292.318-1.112 1.087-1.112 2.65 0 1.563 1.139 3.076 1.298 3.289.159.212 2.24 3.42 5.427 4.793.758.327 1.35.522 1.812.669.76.241 1.452.207 2.001.125.612-.091 1.883-.77 2.148-1.478.265-.707.265-1.314.185-1.442-.08-.127-.291-.207-.61-.366z"/>
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="h-4 w-4 fill-current"
+                            viewBox="0 0 24 24"
+                        >
+                            <path
+                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397.01 12.008.01c3.202.001 6.212 1.246 8.477 3.513 2.262 2.268 3.507 5.28 3.505 8.484-.004 6.657-5.34 11.997-11.953 11.997-2.005-.001-3.973-.502-5.724-1.455L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.625 1.451 5.403.002 9.803-4.381 9.805-9.768.001-2.61-1.01-5.064-2.848-6.905C16.386 2.091 13.937 1.08 11.332 1.08 5.932 1.08 1.533 5.461 1.531 10.849c-.001 1.54.417 3.047 1.214 4.38l-.999 3.648 3.73-.977l-.001-.001zM17.432 14.1c-.318-.159-1.883-.93-2.174-1.036-.291-.106-.503-.159-.715.159-.211.318-.82.103-1.006.318-.185.215-.37.24-.688.082-.318-.159-1.341-.494-2.55-1.577-.94-.84-1.575-1.878-1.76-2.196-.185-.318-.02-.489.14-.647.143-.142.318-.371.477-.557.16-.186.212-.318.318-.53.106-.212.053-.397-.026-.557-.08-.159-.715-1.724-.98-2.36-.258-.62-.522-.536-.715-.546-.185-.01-.397-.012-.609-.012s-.556.08-.847.397c-.292.318-1.112 1.087-1.112 2.65 0 1.563 1.139 3.076 1.298 3.289.159.212 2.24 3.42 5.427 4.793.758.327 1.35.522 1.812.669.76.241 1.452.207 2.001.125.612-.091 1.883-.77 2.148-1.478.265-.707.265-1.314.185-1.442-.08-.127-.291-.207-.61-.366z"
+                            ></path>
                         </svg>
                         Directo a Tu WhatsApp
                     </a>
                 </div>
 
                 <!-- Manifiesto de la Trinchera -->
-                <div class="space-y-4 pt-6 border-t border-zinc-800/60 max-w-xl">
+                <div
+                    class="space-y-4 pt-6 border-t border-zinc-800/60 max-w-xl"
+                >
                     <p class="text-sm text-[#94A3B8] leading-relaxed">
-                        Construyo comunidades de traders comprometidos. Convivo a diario con el apasionante mundo de los mercados, la gestión de expectativas, la psicología de masas y la arquitectura de plataformas meritocráticas.
+                        Construyo comunidades de traders comprometidos. Convivo
+                        a diario con el apasionante mundo de los mercados, la
+                        gestión de expectativas, la psicología de masas y la
+                        arquitectura de plataformas meritocráticas.
                     </p>
-                    <p class="text-xs font-mono text-[#38BDF8] flex items-center gap-1.5">
+                    <p
+                        class="text-xs font-mono text-[#38BDF8] flex items-center gap-1.5"
+                    >
                         <span>⚡</span> En Beta perpetua desde tiempos inmemoriales.
                     </p>
                 </div>
@@ -58,123 +95,178 @@ const filterTags = ['Trading', 'Mindset', 'DARWINs', 'Tecnología', 'Reflexiones
 
             <!-- Columna Derecha: Contenedor de Retrato Estilizado con Enfoque Celeste (5/12) -->
             <div class="lg:col-span-5 flex justify-center lg:justify-end">
-                <div class="relative p-3 rounded-[2.5rem] bg-zinc-900/20 border border-[#38BDF8]/40 shadow-xl shadow-[#38BDF8]/5 hover:border-[#38BDF8] transition-all duration-500 max-w-sm w-full group">
-                    <div class="overflow-hidden rounded-[2rem] bg-zinc-950 aspect-[4/5] relative">
-                        <img 
-                            src="/images/Joan Porcar.png" 
-                            alt="Joan Porcar" 
+                <div
+                    class="relative p-3 rounded-[2.5rem] bg-zinc-900/20 border border-[#38BDF8]/40 shadow-xl shadow-[#38BDF8]/5 hover:border-[#38BDF8] transition-all duration-500 max-w-sm w-full group"
+                >
+                    <div
+                        class="overflow-hidden rounded-[2rem] bg-zinc-950 aspect-[4/5] relative"
+                    >
+                        <img
+                            src="/images/Joan Porcar.png"
+                            alt="Joan Porcar"
                             class="w-full h-full object-cover grayscale contrast-125 brightness-95 group-hover:grayscale-0 group-hover:scale-[1.02] transition-all duration-700"
                             loading="eager"
                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
                         />
                         <!-- Fallback visual -->
-                        <div class="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center text-xs text-zinc-500 bg-zinc-900/80">
-                            <span class="text-[#38BDF8] font-bold mb-2 text-sm">Joan Porcar.png</span>
-                            Verifica que la carpeta <code class="text-white">public</code> esté fuera de <code class="text-white">src</code>.
+                        <div
+                            class="hidden absolute inset-0 flex-col items-center justify-center p-6 text-center text-xs text-zinc-500 bg-zinc-900/80"
+                        >
+                            <span class="text-[#38BDF8] font-bold mb-2 text-sm"
+                                >Joan Porcar.png</span
+                            >
+                            Verifica que la carpeta <code class="text-white"
+                                >public</code
+                            > esté fuera de <code class="text-white">src</code>.
                         </div>
                     </div>
                 </div>
             </div>
-            
         </section>
 
         <!-- Feed de Posts Cronológico -->
         <section class="space-y-12">
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-zinc-800/50 pb-6">
-                <h2 class="text-2xl font-bold text-white tracking-tight">Bitácora Cronológica</h2>
-                
+            <div
+                class="flex flex-col sm:flex-row sm:items-center justify-between gap-6 border-b border-zinc-800/50 pb-6"
+            >
+                <h2 class="text-2xl font-bold text-white tracking-tight">
+                    Posts
+                </h2>
+
                 <div class="flex flex-wrap gap-2" id="tag-filters">
-                    <button 
-                        data-tag="all" 
+                    <button
+                        data-tag="all"
                         class="tag-btn active-tag text-xs font-semibold px-3 py-1.5 rounded-full border border-[#38BDF8] bg-[#38BDF8] text-[#020617] transition-all"
                     >
                         Todos
                     </button>
-                    {filterTags.map((tag) => (
-                        <button 
-                            data-tag={tag.toLowerCase()} 
-                            class="tag-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-white transition-all"
-                        >
-                            {tag}
-                        </button>
-                    ))}
+                    {
+                        filterTags.map((tag) => (
+                            <button
+                                data-tag={tag.toLowerCase()}
+                                class="tag-btn text-xs font-semibold px-3 py-1.5 rounded-full border border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-white transition-all"
+                            >
+                                {tag}
+                            </button>
+                        ))
+                    }
                 </div>
             </div>
 
             <div class="space-y-10" id="posts-container">
-                {sortedPosts.map((post) => (
-                    <article 
-                        class="post-item group space-y-3 transition-opacity duration-300" 
-                        data-tags={JSON.stringify(post.data.tags ? post.data.tags.map(t => t.toLowerCase()) : [])}
-                    >
-                        <div class="flex items-center gap-3 text-xs text-zinc-500">
-                            <time datetime={post.data.pubDate.toISOString()}>
-                                {post.data.pubDate.toLocaleDateString('es-ES', {
-                                    year: 'numeric',
-                                    month: 'long',
-                                    day: 'numeric',
-                                })}
-                            </time>
-                            <span>•</span>
-                            <span>{post.data.readingTime || '5 min lectura'}</span>
-                        </div>
-                        
-                        <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-[#38BDF8] transition-colors">
-                            <a href={`/blog/${post.slug}/`}>
-                                {post.data.title}
-                            </a>
-                        </h3>
-                        
-                        <p class="text-sm text-[#94A3B8] leading-relaxed max-w-3xl">
-                            {post.data.description}
-                        </p>
-
-                        <div class="flex gap-2 pt-1">
-                            {post.data.tags && post.data.tags.map((tag) => (
-                                <span class="text-[10px] tracking-wider uppercase font-semibold text-zinc-400 bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-800/40">
-                                    #{tag}
+                {
+                    sortedPosts.map((post) => (
+                        <article
+                            class="post-item group space-y-3 transition-opacity duration-300"
+                            data-tags={JSON.stringify(
+                                post.data.tags
+                                    ? post.data.tags.map((t) => t.toLowerCase())
+                                    : [],
+                            )}
+                        >
+                            <div class="flex items-center gap-3 text-xs text-zinc-500">
+                                <time
+                                    datetime={post.data.pubDate.toISOString()}
+                                >
+                                    {post.data.pubDate.toLocaleDateString(
+                                        "es-ES",
+                                        {
+                                            year: "numeric",
+                                            month: "long",
+                                            day: "numeric",
+                                        },
+                                    )}
+                                </time>
+                                <span>•</span>
+                                <span>
+                                    {post.data.readingTime || "5 min lectura"}
                                 </span>
-                            ))}
-                        </div>
-                    </article>
-                ))}
+                            </div>
 
-                {sortedPosts.length === 0 && (
-                    <p class="text-sm text-zinc-500 italic py-8">La bitácora está vacía por ahora. Próximamente nuevas píldoras.</p>
-                )}
+                            <h3 class="text-xl md:text-2xl font-bold text-white group-hover:text-[#38BDF8] transition-colors">
+                                <a href={`/blog/${post.slug}/`}>
+                                    {post.data.title}
+                                </a>
+                            </h3>
+
+                            <p class="text-sm text-[#94A3B8] leading-relaxed max-w-3xl">
+                                {post.data.description}
+                            </p>
+
+                            <div class="flex gap-2 pt-1">
+                                {post.data.tags &&
+                                    post.data.tags.map((tag) => (
+                                        <span class="text-[10px] tracking-wider uppercase font-semibold text-zinc-400 bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-800/40">
+                                            #{tag}
+                                        </span>
+                                    ))}
+                            </div>
+                        </article>
+                    ))
+                }
+
+                {
+                    sortedPosts.length === 0 && (
+                        <p class="text-sm text-zinc-500 italic py-8">
+                            La bitácora está vacía por ahora. Próximamente
+                            nuevas píldoras.
+                        </p>
+                    )
+                }
             </div>
         </section>
-
     </main>
 
     <script>
-        const buttons = document.querySelectorAll('.tag-btn');
-        const posts = document.querySelectorAll('.post-item');
+        const buttons = document.querySelectorAll(".tag-btn");
+        const posts = document.querySelectorAll(".post-item");
 
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                buttons.forEach(btn => {
-                    btn.classList.remove('border-[#38BDF8]', 'bg-[#38BDF8]', 'text-[#020617]');
-                    btn.classList.add('border-zinc-800', 'text-zinc-400');
+        buttons.forEach((button) => {
+            button.addEventListener("click", () => {
+                buttons.forEach((btn) => {
+                    btn.classList.remove(
+                        "border-[#38BDF8]",
+                        "bg-[#38BDF8]",
+                        "text-[#020617]",
+                    );
+                    btn.classList.add("border-zinc-800", "text-zinc-400");
                 });
-                
-                button.classList.remove('border-zinc-800', 'text-zinc-400');
-                button.classList.add('border-[#38BDF8]', 'bg-[#38BDF8]', 'text-[#020617]');
 
-                const selectedTag = button.getAttribute('data-tag');
+                button.classList.remove("border-zinc-800", "text-zinc-400");
+                button.classList.add(
+                    "border-[#38BDF8]",
+                    "bg-[#38BDF8]",
+                    "text-[#020617]",
+                );
 
-                posts.forEach(post => {
-                    if (selectedTag === 'all') {
-                        (post as HTMLElement).style.display = 'block';
-                        setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
+                const selectedTag = button.getAttribute("data-tag");
+
+                posts.forEach((post) => {
+                    if (selectedTag === "all") {
+                        (post as HTMLElement).style.display = "block";
+                        setTimeout(
+                            () => ((post as HTMLElement).style.opacity = "1"),
+                            10,
+                        );
                     } else {
-                        const postTags = JSON.parse(post.getAttribute('data-tags') || '[]');
+                        const postTags = JSON.parse(
+                            post.getAttribute("data-tags") || "[]",
+                        );
                         if (postTags.includes(selectedTag)) {
-                            (post as HTMLElement).style.display = 'block';
-                            setTimeout(() => (post as HTMLElement).style.opacity = '1', 10);
+                            (post as HTMLElement).style.display = "block";
+                            setTimeout(
+                                () =>
+                                    ((post as HTMLElement).style.opacity = "1"),
+                                10,
+                            );
                         } else {
-                            (post as HTMLElement).style.opacity = '0';
-                            setTimeout(() => (post as HTMLElement).style.display = 'none', 300);
+                            (post as HTMLElement).style.opacity = "0";
+                            setTimeout(
+                                () =>
+                                    ((post as HTMLElement).style.display =
+                                        "none"),
+                                300,
+                            );
                         }
                     }
                 });
