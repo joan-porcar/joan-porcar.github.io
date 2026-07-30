@@ -1,0 +1,120 @@
+---
+// src/components/CookieBanner.astro
+// Reemplaza este valor con tu ID de medición real de GA4 (ej. 'G-XXXXXXXXXX')
+const GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+---
+
+<div
+    id="cookie-banner"
+    class="hidden fixed bottom-6 left-6 right-6 sm:left-auto sm:right-6 sm:max-w-md bg-zinc-950/95 border border-zinc-800/80 backdrop-blur-md rounded-2xl p-6 shadow-2xl z-50 transition-all duration-500 ease-out transform translate-y-10 opacity-0"
+    role="dialog"
+    aria-labelledby="cookie-title"
+    aria-describedby="cookie-desc"
+>
+    <div class="space-y-4">
+        <div class="flex items-center gap-2">
+            <span class="text-lg">🍪</span>
+            <h3 id="cookie-title" class="text-sm font-bold text-white font-['Plus_Jakarta_Sans'] tracking-tight">
+                Control de privacidad
+            </h3>
+        </div>
+        
+        <p id="cookie-desc" class="text-xs text-zinc-400 leading-relaxed">
+            Utilizo Google Analytics para analizar de forma anónima el tráfico de mi bitácora y saber qué contenidos te interesan más. Las cookies se activarán únicamente si decides aceptar.
+        </p>
+
+        <div class="flex items-center justify-end gap-3 pt-2">
+            <!-- Rechazar -->
+            <button
+                id="cookie-reject-btn"
+                class="px-4 py-2 rounded-lg border border-zinc-800 text-xs font-semibold text-zinc-400 hover:border-zinc-700 hover:text-white transition-all duration-300 cursor-pointer"
+            >
+                Rechazar
+            </button>
+            
+            <!-- Aceptar -->
+            <button
+                id="cookie-accept-btn"
+                class="px-4 py-2 rounded-lg bg-[#38BDF8] text-[#020617] text-xs font-bold hover:bg-white transition-all duration-300 shadow-md shadow-[#38BDF8]/10 cursor-pointer"
+            >
+                Aceptar
+            </button>
+        </div>
+    </div>
+</div>
+
+<script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+    (function () {
+        const storageKey = 'cookie-consent';
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('cookie-accept-btn');
+        const rejectBtn = document.getElementById('cookie-reject-btn');
+
+        if (!banner || !acceptBtn || !rejectBtn) return;
+
+        // Comprobar estado previo
+        const consent = localStorage.getItem(storageKey);
+
+        if (consent === 'accepted') {
+            loadGA(GA_MEASUREMENT_ID);
+        } else if (!consent) {
+            // Mostrar banner con retraso y animación
+            banner.classList.remove('hidden');
+            setTimeout(() => {
+                banner.classList.remove('translate-y-10', 'opacity-0');
+                banner.classList.add('translate-y-0', 'opacity-100');
+            }, 100);
+        }
+
+        // Evento Aceptar
+        acceptBtn.addEventListener('click', () => {
+            localStorage.setItem(storageKey, 'accepted');
+            hideBanner(() => {
+                loadGA(GA_MEASUREMENT_ID);
+            });
+        });
+
+        // Evento Rechazar
+        rejectBtn.addEventListener('click', () => {
+            localStorage.setItem(storageKey, 'rejected');
+            hideBanner();
+        });
+
+        function hideBanner(callback) {
+            banner.classList.remove('translate-y-0', 'opacity-100');
+            banner.classList.add('translate-y-10', 'opacity-0');
+            setTimeout(() => {
+                banner.classList.add('hidden');
+                if (callback) callback();
+            }, 500); // Duración de la animación
+        }
+
+        function loadGA(gaId) {
+            if (!gaId || gaId === 'G-XXXXXXXXXX') {
+                console.warn('Google Analytics no inicializado: GA_MEASUREMENT_ID por defecto.');
+                return;
+            }
+            
+            // Evitar inyección duplicada
+            if (window.gtagInitialized) return;
+            window.gtagInitialized = true;
+
+            // Inyectar script oficial gtag
+            const script = document.createElement('script');
+            script.async = true;
+            script.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+            document.head.appendChild(script);
+
+            // Configurar dataLayer
+            window.dataLayer = window.dataLayer || [];
+            window.gtag = function () {
+                window.dataLayer.push(arguments);
+            };
+            window.gtag('js', new Date());
+            window.gtag('config', gaId, {
+                // Anonimizar IP por defecto (recomendado RGPD)
+                anonymize_ip: true
+            });
+        }
+    })();
+</script>

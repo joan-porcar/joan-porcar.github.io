@@ -1,5 +1,6 @@
 ---
 // src/layouts/Layout.astro
+import CookieBanner from '../components/CookieBanner.astro';
 interface Props {
   title: string;
   description?: string;
@@ -101,6 +102,9 @@ const isContacto = pathname.startsWith('/contacto');
         <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
         <p class="italic">Construido con Astro y Tailwind CSS.</p>
     </footer>
+
+    <!-- Banner de Cookies (RGPD) -->
+    <CookieBanner />
 
 </body>
 </html>
