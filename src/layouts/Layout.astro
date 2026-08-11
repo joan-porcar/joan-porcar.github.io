@@ -98,8 +98,12 @@ const isContacto = pathname.startsWith('/contacto');
     </div>
 
     <!-- Footer Global -->
-    <footer class={`w-full ${maxWidthClass} mx-auto px-6 py-12 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between gap-4`}>
-        <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
+    <footer class={`w-full ${maxWidthClass} mx-auto px-6 py-12 border-t border-zinc-800/30 text-xs text-zinc-600 flex flex-col sm:flex-row justify-between items-center gap-4`}>
+        <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-center sm:text-left">
+            <p>&copy; {new Date().getFullYear()} Joan Porcar. Todos los derechos reservados.</p>
+            <span class="hidden sm:inline text-zinc-800">|</span>
+            <a href="/politica-privacidad" class="hover:text-[#38BDF8] transition-colors">Política de Privacidad</a>
+        </div>
         <p class="italic">Construido con Astro y Tailwind CSS.</p>
     </footer>
 
