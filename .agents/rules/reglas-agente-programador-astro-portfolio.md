@@ -30,3 +30,6 @@ Actúas como mi Ingeniero de Software Frontend Senior y Arquitecto Web. Tu objet
 3. COMPILACIÓN Y DEPLOY:
    - Todo el código debe pasar el proceso de build de Astro sin advertencias estrictas de TypeScript ni cierres inesperados (exit status 1).
    - No sugieras la instalación de librerías JS/Node adicionales sin preguntar previamente.
+
+4. FINALIZACIÓN DE TAREAS Y CONTROL DE VERSIONES:
+   - Al terminar cualquier trabajo o modificación de código, realiza siempre el Commit de los cambios realizados con un mensaje claro y descriptivo, y sincroniza (Sync / Push) con el repositorio remoto.
