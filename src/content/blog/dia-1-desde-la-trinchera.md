@@ -12,7 +12,7 @@ Estás en la trinchera del trading minorista, contemplando la sesión asiática�
 
 En primera línea de fuego.
 
-Te han pasado un link, un enlace de otro blog (¿Un blog? es algo obsoleto ¿no?)
+Te han pasado un link, un enlace de otro blog (*¿Un blog? es algo obsoleto ¿no?*)
 
 Bien, la realidad es que has llegado hasta aquí, y solo espero que no sea buscando el indicador milagroso o la fórmula mágica para duplicar tu cuenta en tres meses. 
 
