@@ -6,7 +6,7 @@ readingTime: "3 min read"
 tags: ['Mercado', 'Mindset']
 ---
 
-Mercado del Gran Bazar, Estambul. 
+Mercado del Gran bazar, Estambul. 
 
 Un puesto de especias volcado, gente gritando, sacos volando y pánico colectivo. En medio del caos, un tipo apoyado en una columna, inmóvil. Le rozó un saco en la cabeza.
 
