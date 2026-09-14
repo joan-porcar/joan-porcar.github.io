@@ -32,12 +32,12 @@ const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029VbDD7ATIHph8xnry1
   description={entry.data.description} 
   maxWidth="3xl"
 >
-  <style>
-      /* Estilos específicos para inyectar el diseño premium al HTML renderizado desde Markdown */
+  <style is:global>
+      /* Estilos para el contenido Markdown inyectado dinámicamente */
       .prose p {
           margin-bottom: 1.5rem;
           color: #94A3B8;
-          font-size: 1.05rem;
+          font-size: 1.1rem;
           line-height: 1.8;
       }
       .prose h2 {
@@ -51,9 +51,10 @@ const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029VbDD7ATIHph8xnry1
       .prose h3 {
           color: #FFFFFF;
           font-weight: 700;
-          font-size: 1.4rem;
-          margin-top: 2rem;
-          margin-bottom: 0.75rem;
+          font-size: 1.35rem;
+          margin-top: 2.25rem;
+          margin-bottom: 1rem;
+          letter-spacing: -0.02em;
       }
       .prose em {
           color: #38BDF8;
@@ -61,18 +62,42 @@ const WHATSAPP_CHANNEL_URL = "https://whatsapp.com/channel/0029VbDD7ATIHph8xnry1
       }
       .prose strong {
           color: #FFFFFF;
-          font-weight: 600;
+          font-weight: 700;
+      }
+      .prose ul {
+          margin: 1.5rem 0;
+          padding-left: 1.25rem;
+          list-style-type: none;
+      }
+      .prose ul li {
+          color: #CBD5E1;
+          margin-bottom: 0.75rem;
+          line-height: 1.7;
+          display: flex;
+          align-items: baseline;
+          gap: 0.5rem;
       }
       .prose blockquote {
           border-left: 3px solid #38BDF8;
-          padding-left: 1.25rem;
-          font-style: italic;
+          background: rgba(56, 189, 248, 0.04);
+          padding: 1.25rem 1.5rem;
+          border-radius: 0 0.75rem 0.75rem 0;
           margin: 2rem 0;
+          color: #E2E8F0;
+          font-style: italic;
+      }
+      .prose blockquote p {
           color: #CBD5E1;
+          margin-bottom: 0.75rem;
+          font-size: 1.05rem;
+          line-height: 1.75;
+      }
+      .prose blockquote p:last-child {
+          margin-bottom: 0;
       }
       .prose pre {
           background-color: #0A0A0C !important;
-          border: 1px solid #334155/60;
+          border: 1px solid rgba(51, 65, 85, 0.6);
           padding: 1.25rem;
           border-radius: 0.75rem;
           overflow-x: auto;
