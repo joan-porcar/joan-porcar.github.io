@@ -30,10 +30,10 @@ Este espacio nace como mi trinchera intelectual. Un lugar sin filtros donde proc
   
 Conceptos más o menos afilados, píldoras directas y artículos más de fondo sobre cuatro ejes fundamentales:  
 
-* 🦉 **DARWINs:**
-* 📉 **Sistemas y mercado:**  
-* 💻 **Tecnología e IA:** 
-* 🤝 **Comportamiento humano:** (e inhumano). 
+* 🦉 **DARWINs**
+* 📉 **Sistemas y mercado**  
+* 💻 **Tecnología e IA** 
+* 🤝 **Comportamiento humano** (e inhumano). 
   
 > "No escribo desde un podio para dar lecciones a nadie. No voy a sentar cátedra. No hay ninguna pretensión aquí, más allá de expresar mi punto de vista y hacerlo (como mínimo), para que pases 3 minutos agradables.  
 > 
