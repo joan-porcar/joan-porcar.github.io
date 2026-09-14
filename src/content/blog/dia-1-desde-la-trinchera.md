@@ -1,7 +1,7 @@
 ---
 title: "Día 1 desde la trinchera"
 pubDate: "2026-07-14"
-description: "Por qué abro este espacio personal: sin atajos, sin promesas vacías y con la realidad cruda de la gestión de capital sobre la mesa."
+description: "Por qué abro este espacio personal: sin atajos, sin censura ni pretensiones. Mi punto de vista personal."
 readingTime: "2 min read"
 tags: ['Mindset', 'Mercado', 'DARWINs']
 ---
