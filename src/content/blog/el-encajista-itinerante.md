@@ -23,13 +23,13 @@ Nace de, por ejemplo, no haber definido tu umbral de riesgo.
 
 El mercado es implacable y vas a tener que aprender a encajar golpes. No se si la única forma de encajarlos pero una con las que me siento más cómodo es la técnica del Pre-Mortem.
 
-### La técnica del Pre-Mortem: disecciona el cadáver antes de entrar
+## La técnica del Pre-Mortem: disecciona el cadáver antes de entrar
 
 Esta idea de Gary Klein no es para iluminados; es para los que estamos en la trinchera. Antes de hacer clic y meter la orden, asume que te has estampado. Disecciona el cadáver en frío: ¿Qué te ha sacado del mercado? ¿En qué punto te saltaste tu propio plan? ¿Cuándo decidió la estadística mandarte a la lona?
 
 Cuando aceptas el desastre antes de que ocurra, el miedo pierde su utilidad. Deja de ser un fantasma abstracto para convertirse en lo que siempre fue: un **coste operativo**.
 
-### Gestión de riesgo real: mira a la ruina a la cara
+## Gestión de riesgo real: mira a la ruina a la cara
 
 Un buen **encajista** no vive en tensión constante. Al contrario. Es el único que se toma el café tranquilo mientras todo arde a su alrededor.
 
