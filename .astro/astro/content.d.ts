@@ -155,6 +155,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"nacemos-solos-operamos-solos.md": {
+	id: "nacemos-solos-operamos-solos.md";
+  slug: "nacemos-solos-operamos-solos";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 };
 
 	};
