@@ -1,7 +1,7 @@
 ---
 title: "El encajista itinerante"
 pubDate: "2026-08-01"
-description: "La incertidumbre no paraliza por el golpe, sino por la sorpresa repentina."
+description: "La incertidumbre no se paraliza por el golpe, sino por la sorpresa repentina."
 readingTime: "3 min read"
 tags: ['Mercado', 'Mindset']
 ---
