@@ -1,7 +1,7 @@
 ---
-title: "Nacemos solos. Operamos solos."
+title: "Nacemos solos. Operamos solos"
 pubDate: "2026-08-09"
-description: "Nadie vendrá a salvarte de ti mism@"
+description: "Nadie vendrá a salvarte de ti mism@."
 readingTime: "1 min read"
 tags: ['Reflexiones', 'Mindset', 'Mercado']
 ---
