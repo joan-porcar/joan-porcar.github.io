@@ -21,7 +21,7 @@ El tipo ya había calculado, diez minutos antes, que ese puesto podía irse al t
 En el trading (ojo, también en la vida real, por supuesto), el pánico no nace de perder capital. Nace de no tener ni la más mínima idea de cuánto te va a doler.
 Nace de, por ejemplo, no haber definido tu umbral de riesgo.
 
-El mercado es implacable y vas a tener que aprender a encajar golpes. No se si la única forma de encajarlos pero una con las que me siento más cómodo es la técnica del Pre-Mortem.
+El mercado es implacable y vas a tener que aprender a encajar golpes. No se si es la única forma de encajarlos pero una con las que me siento más cómodo es la técnica del Pre-Mortem.
 
 ## La técnica del Pre-Mortem: Disecciona el cadáver (aunque aún esté vivo 😅)
 
