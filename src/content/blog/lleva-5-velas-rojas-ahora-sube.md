@@ -42,8 +42,9 @@ A la oferta y la demanda del mercado les da absolutamente igual lo que haya hech
 
 Es obvio, pero conviene recordarlo, porque en medio del bloqueo mental puede no parecerlo y perder de vista la microestructura de cualquier mercado:
 
-- **Memoria cero:** Un activo no cae porque haya más participantes vendiendo que comprando (esa relación siempre será 1:1). Si no hay suficiente liquidez para absorber las ventas en un nivel específico, el precio simplemente caerá buscando la siguiente zona con suficiente densidad de liquidez.
-- **Ilusión minorista:** Mientras intentas adivinar el suelo con tu gráfico de 5 minutos, los algoritmos de alta frecuencia (*HFT*) e institucionales están liquidando posiciones pesadas o ejecutando algoritmos de reequilibrio, allá donde pueden hacerlo, sin mirar gráficos estéticos. Los verdaderos movimientos estructurales los dictan los flujos de capital masivos.
+**Memoria cero:** Un activo no cae porque haya más participantes vendiendo que comprando (esa relación siempre será 1:1). Si no hay suficiente liquidez para absorber las ventas en un nivel específico, el precio simplemente caerá buscando la siguiente zona con suficiente densidad de liquidez.
+
+**Ilusión minorista:** Mientras intentas adivinar el suelo con tu gráfico de 5 minutos, los algoritmos de alta frecuencia (*HFT*) e institucionales están liquidando posiciones pesadas o ejecutando algoritmos de reequilibrio, allá donde pueden hacerlo, sin mirar gráficos estéticos. Los verdaderos movimientos estructurales los dictan los flujos de capital masivos.
 
 ## Nuestra letal amiga la martingala
 
