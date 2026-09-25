@@ -155,6 +155,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"lleva-5-velas-rojas-ahora-sube.md": {
+	id: "lleva-5-velas-rojas-ahora-sube.md";
+  slug: "lleva-5-velas-rojas-ahora-sube";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "nacemos-solos-operamos-solos.md": {
 	id: "nacemos-solos-operamos-solos.md";
   slug: "nacemos-solos-operamos-solos";
