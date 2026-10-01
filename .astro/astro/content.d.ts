@@ -155,6 +155,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"la-quietud-del-navegante-gqiz.md": {
+	id: "la-quietud-del-navegante-gqiz.md";
+  slug: "la-quietud-del-navegante-gqiz";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "lleva-5-velas-rojas-ahora-sube.md": {
 	id: "lleva-5-velas-rojas-ahora-sube.md";
   slug: "lleva-5-velas-rojas-ahora-sube";
