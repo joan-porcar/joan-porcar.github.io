@@ -57,7 +57,7 @@ Control y más control cuando todo se tuerce.
 
 Su asimetría confirma nuestra tesis: paciencia para cazar los movimientos buenos sin forzar la máquina. Hay cierto riesgo de cola por la curtosis elevada, sí, pero el control de riesgo apaga cualquier conato de incendio antes de hora.
 
-## La huella en el mercado: oro, sesgo comprador y evolución del portfolio
+## La huella en el mercado: oro, sesgo comprador y evolución del porfolio
 
 En las tripas de la operativa hay un rasgo innegable: más de un 90% de largos y casi un 60% concentrado en materias primas. El oro manda con un tercio del total. Si el oro ruge y coge tendencia, el DARWIN despega.
 
@@ -69,7 +69,7 @@ Pero el mercado cambia, y 2026 es una prueba de ello. La cartera también lo hiz
 
 ## Disciplina en la sequía y el valor de no romper las reglas
 
-Lo verdaderamente valioso durante estos meses no es el porcentaje mensual, sino la aplicación de un método que le lleva a evolucionar su *portfolio*. La introducción de nuevos activos puede parecer lógica, pero, de nuevo, hay que aplicarla. Otros decidieron no moverse.  
+Lo verdaderamente valioso durante estos meses no es el porcentaje mensual, sino la aplicación de un método que le lleva a evolucionar su porfolio. La introducción de nuevos activos puede parecer lógica, pero, de nuevo, hay que aplicarla. Otros decidieron no moverse.  
 
 Él decidió tomar la senda del desarrollo para lograr evolucionar. Veremos el resultado.
 
