@@ -33,7 +33,7 @@ Aitor huye de los discursos débiles y los fuegos artificiales, y te cuenta su t
 
 Y ahí, bajo mi punto de vista, es donde la grandeza de un *trader* se doctora: **en la niebla**.
 
-Hoy, **GQIZ** acumula **204 días en *drawdown* vivo**, flotando a un -5% y pico del máximo histórico que alcanzó en marzo del 26. Tras un 2025 donde la curva despegó un **+35,04%**, este complejo 2026 le regala un suave compás de espera con un **+2,84% *YTD***.
+Hoy, **GQIZ** acumula 204 días en *drawdown* vivo, flotando a un -5% y pico del máximo histórico que alcanzó en marzo del 26. Tras un 2025 donde la curva despegó un **+35,04%**, este complejo 2026 le regala un suave compás de espera con un **+2,84% YTD**.
 
 Ese compás es «de espera» para él.  
 
