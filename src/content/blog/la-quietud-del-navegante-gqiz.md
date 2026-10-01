@@ -1,5 +1,5 @@
 ---
-title: "La quietud del navegante (GQIZ)"
+title: "La quietud del navegante. DARWIN GQIZ"
 pubDate: "2026-10-01"
 description: "Breve análisis del DARWIN GQIZ. La elegancia de habitar la espera en el trading."
 readingTime: "3 min read"
