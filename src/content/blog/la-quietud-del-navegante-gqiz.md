@@ -79,4 +79,4 @@ Todo muy *Made by Aitor*. **Mirada al frente y paso a paso**.
 
 ---
 
-*PD:* Puedes consultar su *track record* completo [aquí](https://www.darwinexzero.com/es/darwin/GQIZ/performance).
+*PD:* Puedes consultar su *track record* completo <a href="https://www.darwinexzero.com/es/darwin/GQIZ/performance" style="color: #377867;" class="font-semibold underline hover:opacity-80" target="_blank" rel="noopener noreferrer">aquí</a>.
