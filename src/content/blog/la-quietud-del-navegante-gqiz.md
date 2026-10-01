@@ -8,11 +8,13 @@ tags: ['DARWINs', 'Mercado', 'Mindset']
 
 En la vida, todo son ciclos. El *trading* no es diferente y hay momentos en el mercado en los que todo brilla con una deslumbrante facilidad. 
 
-Si contemplas el recorrido del DARWIN **GQIZ** desde una distancia fría, lo primero que atrapa la mirada son las medallas: esa rentabilidad anualizada del **23,75%**, un ratio de *Sharpe* impecable de **2,17** y una contención del riesgo envidiable.  
+Si contemplas el recorrido del DARWIN **GQIZ** desde una distancia fría, lo primero que atrapa la mirada son sus métricas; esa rentabilidad anualizada del **23,75%**, un ratio de *Sharpe* impecable de **2,17** y una contención del riesgo envidiable.
 
-Con un *drawdown* máximo de apenas el **-7,77%**.  
+Con un *drawdown* máximo de apenas el **-7,77%**. 
 
-Todo lo que me gusta ver en un DARWIN a vista de pájaro.  
+Estoy viéndolo a principios de octubre del 26, y sí, puede que tú vayas a ver una imagen totalmente diferente. 
+
+Pero hoy, veo todo lo que me gusta ver en un DARWIN a vista de pájaro.  
 
 Detrás de esa arquitectura numérica se halla Aitor, un *trader* inspirador.  
 
