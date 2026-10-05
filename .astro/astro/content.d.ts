@@ -141,6 +141,13 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
+"cambiar-de-galaxia-para-cometer-los-mismos-errores.md": {
+	id: "cambiar-de-galaxia-para-cometer-los-mismos-errores.md";
+  slug: "cambiar-de-galaxia-para-cometer-los-mismos-errores";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "dia-1-desde-la-trinchera.md": {
 	id: "dia-1-desde-la-trinchera.md";
   slug: "dia-1-desde-la-trinchera";
