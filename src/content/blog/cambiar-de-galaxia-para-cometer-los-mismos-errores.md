@@ -24,6 +24,6 @@ Vives en una guerra fría eterna. Contigo mismo.
 
 Lunes por la mañana, el finde ya pasó. *Por fin*, te dices.  
 
-Suena [«Exoplaneta» de Arde Bogotá](https://youtu.be/HZgDUvxHvcw?si=gaE_2e8ejEnl9XdS) en tu *Spotify*. El *broker* con el que hoy comienzas una nueva aventura tiene un logo diferente, te parece innovador. Además, su interfaz pulida te gusta… luce «más amigable».
+Suena [«Exoplaneta» de Arde Bogotá](https://youtu.be/HZgDUvxHvcw?si=gaE_2e8ejEnl9XdS) en tu *Spotify*. El *broker* con el que hoy comienzas una nueva aventura tiene un logo diferente, te parece innovador. Además, su interfaz pulida te gusta… luce "más amigable".
 
 **Pero el dedo que presionará el botón para sobreapalancarse será el mismo de siempre.**
