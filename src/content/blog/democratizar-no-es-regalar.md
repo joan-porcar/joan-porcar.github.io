@@ -24,7 +24,9 @@ Democratizar el **acceso a los mercados** (y a la tecnología, a la formación�
 
 Ni más, ni menos.
 
-Esa igualdad de oportunidades es esencialmente justicia. Que cualquiera con una conexión a internet y disciplina pueda competir es un avance colosal. Pero confundir la igualdad de acceso con la garantía de resultados es una trampa mental. Muy peligrosa.   
+Esa igualdad de oportunidades es esencialmente justicia. Que cualquiera con una conexión a internet y disciplina pueda competir es un avance colosal. Pero confundir la igualdad de acceso con la garantía de resultados es una trampa mental.
+
+Muy peligrosa.   
   
 En cualquier entorno (también en el mercado), exigir o esperar igualdad de resultados es una quimera ingenua.
 
