@@ -148,6 +148,13 @@ declare module 'astro:content' {
   collection: "blog";
   data: InferEntrySchema<"blog">
 } & { render(): Render[".md"] };
+"democratizar-no-es-regalar.md": {
+	id: "democratizar-no-es-regalar.md";
+  slug: "democratizar-no-es-regalar";
+  body: string;
+  collection: "blog";
+  data: InferEntrySchema<"blog">
+} & { render(): Render[".md"] };
 "dia-1-desde-la-trinchera.md": {
 	id: "dia-1-desde-la-trinchera.md";
   slug: "dia-1-desde-la-trinchera";
