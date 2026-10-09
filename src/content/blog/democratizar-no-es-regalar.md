@@ -2,7 +2,7 @@
 title: "Democratizar no es regalar"
 pubDate: "2026-10-09"
 description: "La peligrosa trampa de confundir la igualdad de oportunidades con la garantía de resultados."
-readingTime: "2 min read"
+readingTime: "1 min read"
 tags: ['Mercado', 'Reflexiones']
 ---
 
@@ -17,8 +17,6 @@ Mismo formulario en PDF, misma pestaña del navegador y la misma hora límite pa
 *“Presentado. Ahora toca preparar el deck”*.
   
 Vas a la cocina, te sirves el segundo café. De vuelta ajustas la silla y te convences de que descargar la misma plantilla de *pitch* te equipara a los veteranos de Silicon Valley. Claude te soltó que las cosas funcionan así.
-
-Bastan cuatro segundos frente a la pantalla para descubrir que tener la misma *app* o el mismo *software* de código abierto no te convierte en el dueño del tablero.
 
 Hay una confusión peligrosa en el aire: pensar que porque la puerta está abierta para todo el mundo, todos cruzarán la meta al mismo tiempo.
 
