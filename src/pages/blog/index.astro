@@ -1,0 +1,383 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+// 1. Obtener y ordenar todos los artículos cronológicamente
+const allPosts = await getCollection("blog");
+const sortedPosts = allPosts.sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+// 2. Extraer etiquetas con artículos existentes
+const availableTags = new Set(
+    allPosts.flatMap((post) =>
+        (post.data.tags || []).map((t) => t.toLowerCase()),
+    ),
+);
+const defaultFilterTags = [
+    "DARWINs",
+    "Mercado",
+    "Trading",
+    "Mindset",
+    "Tecnología",
+    "Reflexiones",
+];
+const filterTags = defaultFilterTags.filter((tag) =>
+    availableTags.has(tag.toLowerCase()),
+);
+---
+
+<Layout
+    title="Bitácora | Joan Porcar"
+    description="Archivo completo de artículos, reflexiones y análisis sobre mercados, sistemas de trading y comportamiento humano."
+>
+    <main class="max-w-5xl mx-auto px-6 py-16 space-y-12">
+        <!-- Encabezado de la Bitácora -->
+        <header id="posts-header" class="space-y-4 border-b border-zinc-800/50 pb-8">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-900/60 border border-zinc-800 text-xs text-zinc-400">
+                <span class="w-1.5 h-1.5 rounded-full bg-[#38BDF8]"></span>
+                <span>Catálogo Completo &bull; {sortedPosts.length} artículos</span>
+            </div>
+            
+            <h1 class="text-4xl md:text-5xl font-bold text-white tracking-tight leading-none">
+                Bitácora <span class="italic text-[#38BDF8]">desde la trinchera</span>.
+            </h1>
+            
+            <p class="text-base text-zinc-400 max-w-2xl leading-relaxed">
+                Reflexiones, sistemas y aprendizajes sin filtros. Explora por temática o navega el catálogo cronológico completo con paginación limpia.
+            </p>
+        </header>
+
+        <!-- Filtro por Etiquetas -->
+        <div class="space-y-4">
+            <div class="flex items-center justify-between">
+                <span class="text-xs uppercase tracking-wider font-semibold text-zinc-500">Filtrar por tema:</span>
+                <span id="posts-count-indicator" class="text-xs text-zinc-400">
+                    {sortedPosts.length} publicaciones
+                </span>
+            </div>
+            <div class="flex flex-wrap gap-2" id="tag-filters">
+                <button
+                    data-tag="all"
+                    class="tag-btn active-tag text-xs font-semibold px-3.5 py-1.5 rounded-full border border-[#38BDF8] bg-[#38BDF8] text-[#020617] transition-all cursor-pointer"
+                >
+                    Todos ({sortedPosts.length})
+                </button>
+                {
+                    filterTags.map((tag) => {
+                        const count = allPosts.filter((p) =>
+                            (p.data.tags || []).some(
+                                (t) => t.toLowerCase() === tag.toLowerCase(),
+                            ),
+                        ).length;
+                        return (
+                            <button
+                                data-tag={tag.toLowerCase()}
+                                class="tag-btn text-xs font-semibold px-3.5 py-1.5 rounded-full border border-zinc-800 text-zinc-400 hover:border-zinc-600 hover:text-white transition-all cursor-pointer"
+                            >
+                                {tag} ({count})
+                            </button>
+                        );
+                    })
+                }
+            </div>
+        </div>
+
+        <!-- Feed de Artículos Paginados -->
+        <div class="space-y-10 min-h-[380px]" id="posts-container">
+            {
+                sortedPosts.map((post) => (
+                    <article
+                        class="post-item group space-y-3 transition-all duration-200 ease-out"
+                        data-tags={JSON.stringify(
+                            post.data.tags
+                                ? post.data.tags.map((t) => t.toLowerCase())
+                                : [],
+                        )}
+                    >
+                        <div class="flex items-center gap-3 text-xs text-zinc-500 group-hover:text-zinc-400 transition-colors duration-200">
+                            <time datetime={post.data.pubDate.toISOString()}>
+                                {post.data.pubDate.toLocaleDateString("es-ES", {
+                                    year: "numeric",
+                                    month: "long",
+                                    day: "numeric",
+                                })}
+                            </time>
+                            <span>•</span>
+                            <span>
+                                {post.data.readingTime || "5 min lectura"}
+                            </span>
+                        </div>
+
+                        <h2 class="text-xl md:text-2xl font-bold text-white group-hover:text-[#38BDF8] transition-colors duration-200">
+                            <a href={`/blog/${post.slug}/`}>
+                                {post.data.title}
+                            </a>
+                        </h2>
+
+                        <p class="text-sm text-[#94A3B8] leading-relaxed max-w-3xl">
+                            {post.data.description}
+                        </p>
+
+                        <div class="flex gap-2 pt-1">
+                            {post.data.tags &&
+                                post.data.tags.map((tag) => (
+                                    <button
+                                        type="button"
+                                        data-tag-click={tag.toLowerCase()}
+                                        class="article-tag-badge text-[10px] tracking-wider uppercase font-semibold text-zinc-400 group-hover:text-zinc-300 bg-zinc-900/60 px-2 py-0.5 rounded border border-zinc-800/40 group-hover:border-zinc-700/60 hover:!border-[#38BDF8]/50 hover:!text-white transition-colors duration-200 cursor-pointer"
+                                    >
+                                        #{tag}
+                                    </button>
+                                ))}
+                        </div>
+                    </article>
+                ))
+            }
+
+            <!-- Mensaje de estado vacío (cuando una etiqueta no tiene artículos) -->
+            <div id="no-posts-msg" class="hidden py-16 text-center space-y-3 border border-dashed border-zinc-800/80 rounded-xl bg-zinc-900/20">
+                <p class="text-sm text-zinc-400">
+                    No hay publicaciones disponibles para esta categoría en este momento.
+                </p>
+                <button
+                    id="reset-filter-btn"
+                    class="text-xs font-semibold text-[#38BDF8] hover:underline cursor-pointer"
+                >
+                    Volver a ver todas las publicaciones
+                </button>
+            </div>
+        </div>
+
+        <!-- Barra de Paginación -->
+        <div
+            id="pagination-bar"
+            class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-zinc-800/50 text-xs text-zinc-400"
+        >
+            <div id="pagination-info" class="font-mono">
+                Mostrando artículos
+            </div>
+
+            <div class="flex items-center gap-2" id="pagination-controls">
+                <button
+                    id="prev-page-btn"
+                    class="px-3.5 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:border-zinc-700 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer font-medium"
+                >
+                    &larr; Anterior
+                </button>
+
+                <div id="pagination-numbers" class="flex items-center gap-1.5">
+                    <!-- Los números de página se inyectan dinámicamente -->
+                </div>
+
+                <button
+                    id="next-page-btn"
+                    class="px-3.5 py-2 rounded-lg border border-zinc-800 bg-zinc-900/40 text-zinc-300 hover:border-zinc-700 hover:text-white disabled:opacity-30 disabled:pointer-events-none transition-all cursor-pointer font-medium"
+                >
+                    Siguiente &rarr;
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Script de Paginación y Filtrado Dinámico -->
+    <script>
+        const POSTS_PER_PAGE = 5;
+        let currentPage = 1;
+        let currentTag = "all";
+
+        const tagButtons = document.querySelectorAll(".tag-btn");
+        const articleTagBadges = document.querySelectorAll(".article-tag-badge");
+        const posts = Array.from(document.querySelectorAll<HTMLElement>(".post-item"));
+        const noPostsMsg = document.getElementById("no-posts-msg");
+        const resetFilterBtn = document.getElementById("reset-filter-btn");
+        const paginationBar = document.getElementById("pagination-bar");
+        const paginationInfo = document.getElementById("pagination-info");
+        const paginationNumbers = document.getElementById("pagination-numbers");
+        const prevPageBtn = document.getElementById("prev-page-btn") as HTMLButtonElement | null;
+        const nextPageBtn = document.getElementById("next-page-btn") as HTMLButtonElement | null;
+        const postsCountIndicator = document.getElementById("posts-count-indicator");
+        const postsHeader = document.getElementById("posts-header");
+
+        function getFilteredPosts(): HTMLElement[] {
+            if (currentTag === "all") {
+                return posts;
+            }
+            return posts.filter((post) => {
+                const tags: string[] = JSON.parse(post.getAttribute("data-tags") || "[]");
+                return tags.includes(currentTag);
+            });
+        }
+
+        function render() {
+            const filtered = getFilteredPosts();
+            const totalItems = filtered.length;
+            const totalPages = Math.ceil(totalItems / POSTS_PER_PAGE) || 1;
+
+            if (currentPage > totalPages) {
+                currentPage = 1;
+            }
+
+            // Ocultar todos los posts
+            posts.forEach((post) => {
+                post.style.display = "none";
+            });
+
+            if (totalItems === 0) {
+                if (noPostsMsg) noPostsMsg.classList.remove("hidden");
+                if (paginationBar) paginationBar.classList.add("hidden");
+                if (postsCountIndicator) postsCountIndicator.textContent = "0 publicaciones";
+                return;
+            } else {
+                if (noPostsMsg) noPostsMsg.classList.add("hidden");
+                if (postsCountIndicator) {
+                    postsCountIndicator.textContent = `${totalItems} ${totalItems === 1 ? "publicación" : "publicaciones"}`;
+                }
+            }
+
+            // Mostrar el segmento correspondiente a la página actual
+            const startIndex = (currentPage - 1) * POSTS_PER_PAGE;
+            const endIndex = Math.min(startIndex + POSTS_PER_PAGE, totalItems);
+            const pagePosts = filtered.slice(startIndex, endIndex);
+
+            pagePosts.forEach((post) => {
+                post.style.display = "block";
+            });
+
+            // Actualizar barra de paginación
+            if (paginationBar) {
+                if (totalPages <= 1) {
+                    paginationBar.classList.add("hidden");
+                } else {
+                    paginationBar.classList.remove("hidden");
+                }
+            }
+
+            // Actualizar texto informativo
+            if (paginationInfo) {
+                paginationInfo.textContent = `Mostrando ${startIndex + 1}–${endIndex} de ${totalItems} artículos`;
+            }
+
+            // Actualizar botones Anterior y Siguiente
+            if (prevPageBtn) {
+                prevPageBtn.disabled = currentPage === 1;
+            }
+            if (nextPageBtn) {
+                nextPageBtn.disabled = currentPage === totalPages;
+            }
+
+            // Generar botones numéricos
+            if (paginationNumbers) {
+                paginationNumbers.innerHTML = "";
+                for (let i = 1; i <= totalPages; i++) {
+                    const btn = document.createElement("button");
+                    btn.type = "button";
+                    btn.textContent = String(i);
+                    btn.className = i === currentPage
+                        ? "w-8 h-8 rounded-lg font-semibold border border-[#38BDF8] bg-[#38BDF8] text-[#020617] transition-all cursor-pointer"
+                        : "w-8 h-8 rounded-lg font-medium border border-zinc-800 bg-zinc-900/40 text-zinc-400 hover:border-zinc-700 hover:text-white transition-all cursor-pointer";
+
+                    btn.addEventListener("click", () => {
+                        currentPage = i;
+                        render();
+                        scrollToFeed();
+                    });
+                    paginationNumbers.appendChild(btn);
+                }
+            }
+        }
+
+        function scrollToFeed() {
+            if (postsHeader) {
+                postsHeader.scrollIntoView({ behavior: "smooth", block: "start" });
+            }
+        }
+
+        function setActiveTag(tag: string, updateUrl: boolean = true) {
+            currentTag = tag.toLowerCase();
+            currentPage = 1;
+
+            tagButtons.forEach((btn) => {
+                const btnTag = btn.getAttribute("data-tag");
+                if (btnTag === currentTag) {
+                    btn.classList.remove("border-zinc-800", "text-zinc-400");
+                    btn.classList.add("border-[#38BDF8]", "bg-[#38BDF8]", "text-[#020617]");
+                } else {
+                    btn.classList.remove("border-[#38BDF8]", "bg-[#38BDF8]", "text-[#020617]");
+                    btn.classList.add("border-zinc-800", "text-zinc-400");
+                }
+            });
+
+            if (updateUrl) {
+                const url = new URL(window.location.href);
+                if (currentTag === "all") {
+                    url.searchParams.delete("tag");
+                } else {
+                    url.searchParams.set("tag", currentTag);
+                }
+                window.history.replaceState({}, "", url.toString());
+            }
+
+            render();
+        }
+
+        // Listeners para los botones de tags superiores
+        tagButtons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const tag = btn.getAttribute("data-tag") || "all";
+                setActiveTag(tag);
+            });
+        });
+
+        // Listeners para los badges de tags dentro de los artículos
+        articleTagBadges.forEach((badge) => {
+            badge.addEventListener("click", (e) => {
+                e.preventDefault();
+                const tag = badge.getAttribute("data-tag-click");
+                if (tag) {
+                    setActiveTag(tag);
+                    scrollToFeed();
+                }
+            });
+        });
+
+        // Listener para el botón de reinicio
+        if (resetFilterBtn) {
+            resetFilterBtn.addEventListener("click", () => {
+                setActiveTag("all");
+            });
+        }
+
+        // Listeners Anterior / Siguiente
+        if (prevPageBtn) {
+            prevPageBtn.addEventListener("click", () => {
+                if (currentPage > 1) {
+                    currentPage--;
+                    render();
+                    scrollToFeed();
+                }
+            });
+        }
+
+        if (nextPageBtn) {
+            nextPageBtn.addEventListener("click", () => {
+                const filtered = getFilteredPosts();
+                const totalPages = Math.ceil(filtered.length / POSTS_PER_PAGE);
+                if (currentPage < totalPages) {
+                    currentPage++;
+                    render();
+                    scrollToFeed();
+                }
+            });
+        }
+
+        // Comprobar parámetro en URL al cargar (ej. ?tag=trading)
+        const urlParams = new URLSearchParams(window.location.search);
+        const initialTag = urlParams.get("tag");
+        if (initialTag) {
+            setActiveTag(initialTag, false);
+        } else {
+            render();
+        }
+    </script>
+</Layout>

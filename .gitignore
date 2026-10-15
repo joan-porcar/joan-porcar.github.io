@@ -1,0 +1,10 @@
+# Dependencias
+node_modules/
+
+# Cache local de Astro
+.astro/
+
+# Logs y SO
+npm-debug.log*
+.DS_Store
+Thumbs.db

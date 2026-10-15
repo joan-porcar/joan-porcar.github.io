@@ -28,6 +28,7 @@ const maxWidthClass = maxWidthClasses[maxWidth] || 'max-w-5xl';
 
 const pathname = Astro.url.pathname;
 const isHome = pathname === '/' || pathname === '';
+const isBlog = pathname.startsWith('/blog');
 const isContacto = pathname.startsWith('/contacto');
 ---
 <!DOCTYPE html>
@@ -88,6 +89,7 @@ const isContacto = pathname.startsWith('/contacto');
         </a>
         <nav class="flex gap-6 text-sm font-medium font-['Plus_Jakarta_Sans'] tracking-wide">
             <a href="/" class={isHome ? "text-white transition-colors" : "text-[#94A3B8] hover:text-[#38BDF8] transition-colors"}>Inicio</a>
+            <a href="/blog" class={isBlog ? "text-white transition-colors" : "text-[#94A3B8] hover:text-[#38BDF8] transition-colors"}>Blog</a>
             <a href="/contacto" class={isContacto ? "text-white transition-colors" : "text-[#94A3B8] hover:text-[#38BDF8] transition-colors"}>Contacto</a>
         </nav>
     </header>
