@@ -16,7 +16,7 @@ De una sola pieza; leal, sin el menor interés en subirse a un podio a dar lecci
 
 El mercado, por desgracia, no entiende nada de eso. Tu *track record* es el resultado de los datos que le arrojas. 
 
-**NNZG**, su DARWIN, desnuda una realidad sin anestesia, pero tremendamente reparadora; acumula hoy 688 días de *track record* y un **26,73%** a origen, aunque lleva exactamente 369 días sin marcar un nuevo máximo histórico.
+**NNZG**, su DARWIN, desnuda una realidad sin anestesia, pero tremendamente reparadora; acumula hoy 688 días de *track record* y un 26,73% a origen, aunque lleva exactamente 369 días sin marcar un nuevo máximo histórico.
 
 Una dosis de realidad en vena para cualquiera que conozca la dureza del mercado. Matías no busca atajos ni disfraza la curva, sabe que es imposible de disfrazar y, además, ha sufrido en sus carnes todas las trampas de la industria del *trading* a lo largo de estos años.
 
@@ -26,11 +26,11 @@ Porque su pasión por el *trading* es un imperio sin murallas: nada lo limita, n
 
 ## Diseccionando datos
 
-El máximo *drawdown* histórico se encajó en un **-16,03%**, extendiéndose durante 266 días entre noviembre de 2025 y julio de 2026. Caer un 16% entra dentro de lo digerible en un DARWIN serio.
+El máximo *drawdown* histórico se encajó en un -16,03%, extendiéndose durante 266 días entre noviembre de 2025 y julio de 2026. Caer un 16% entra dentro de lo digerible en un DARWIN serio.
 
 Aunque ya lo sabemos, digerir no es recuperarlo.
 
-Y ahí está el punto. La salida del foso parece que está atascada tras el rebote de agosto (**+7,58%**), que le dio una bofetada de aire fresco. Sin embargo, octubre devolvió un **-1,10%** y noviembre arranca titubeante (**+0,50%**).
+Y ahí está el punto. La salida del foso parece que está atascada tras el rebote de agosto (+7,58%), que le dio una bofetada de aire fresco. Sin embargo, octubre devolvió un -1,10% y noviembre arranca titubeante (+0,50%).
 
 Datos.  
 Nada más... y nada menos.
@@ -39,7 +39,7 @@ Cuando leas esto, quizás las cifras hayan cambiado, y esa es la grandeza del pr
 
 Y Matías es de los que creyeron desde el principio.
 
-La volatilidad anualizada sigue contenida en el **11,99%**, un perfil bajo para estas circunstancias que demuestra que el *trader* sabe exactamente lo que hace. Ese es el ángulo de ataque que le permite encarar un gráfico con su *savoir-faire*, gestionando la estabilidad de riesgo de una cuenta de señales que ha tenido episodios de montaña rusa poco aptos para cardíacos.
+La volatilidad anualizada sigue contenida en el 11,99%, un perfil bajo para estas circunstancias que demuestra que el *trader* sabe exactamente lo que hace. Ese es el ángulo de ataque que le permite encarar un gráfico con su *savoir-faire*, gestionando la estabilidad de riesgo de una cuenta de señales que ha tenido episodios de montaña rusa poco aptos para cardíacos.
 
 Forma parte de la inevitable evolución.
 
@@ -51,21 +51,21 @@ Nadie es infalible en el mercado, lógicamente… pero creo que ya entiendes por
 
 ## Cuchillo entre los dientes en su par fetiche, el EURJPY
 
-**NNZG** es un monocultivo puro donde el EURJPY acapara el **98,87%** de las 793 operaciones registradas. La estrategia descansa sobre un sesgo clásico de cazador de giros, combinado con salidas cuando la tendencia se formó.
+**NNZG** es un monocultivo puro donde el EURJPY acapara el 98,87% de las 793 operaciones registradas. La estrategia descansa sobre un sesgo clásico de cazador de giros, combinado con salidas cuando la tendencia se formó.
 
 Aquí viene la grandeza del sistema.
 
-**NNZG** solo termina verde en 2,8 *trades* de cada 10. Aguanta el tipo gracias a un ratio de *payoff* de **3,21** (gana un **0,73%** medio por *trade* bueno frente a un **-0,23%** cuando falla). Su ratio de duración es de **6,05**.
+**NNZG** solo termina verde en 2,8 *trades* de cada 10. Aguanta el tipo gracias a un ratio de *payoff* de 3,21 (gana un 0,73% medio por *trade* bueno frente a un -0,23% cuando falla). Su ratio de duración es de 6,05.
 
 Una forma de entender el *trading* angosta, a la que se llega después de muchas curvas, y que nos explica el fuerte aprendizaje por el que ha transitado.
 
 ## Yo a Tokio y tú a Nueva York
 
-La distribución por sesiones ofrece la lectura más curiosa sobre dónde está el *edge* y dónde pudiera estar el punto de mejora. La sesión asiática aporta un **27,64%** de rentabilidad con 527 operaciones (33,46% del total).
+La distribución por sesiones ofrece la lectura más curiosa sobre dónde está el *edge* y dónde pudiera estar el punto de mejora. La sesión asiática aporta un 27,64% de rentabilidad con 527 operaciones (33,46% del total).
 
 Definitivamente me quedo con Tokio. Tiene todo el sentido tratándose del JPY.
 
-La europea suma un **3,27%** adicional; sin embargo, la sesión americana sangra, arrojando una rentabilidad negativa acumulada del **-4,48%** (397 operaciones, el 25,21% del total).
+La europea suma un 3,27% adicional; sin embargo, la sesión americana sangra, arrojando una rentabilidad negativa acumulada del -4,48% (397 operaciones, el 25,21% del total).
 
 *¿Ajustar esa ventana es su gran asignatura pendiente?* 🤔
 
