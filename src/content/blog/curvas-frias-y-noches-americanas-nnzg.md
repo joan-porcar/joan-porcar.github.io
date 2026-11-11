@@ -74,3 +74,8 @@ Es una conclusión simplista, a primera vista, pero me temo que el asunto tiene 
 Porque el *trading* real no va de tapar las cicatrices del gráfico ni de buscar la fórmula perfecta; va de sostener la mirada al mercado día tras día.
 
 Y por eso, con sus luces, sus sombras, sus noches americanas y esa forma suya de ser de una sola pieza, Matías y su **NNZG** se han convertido en todo un clásico de **Darwinex**.
+
+---
+
+*PD:* Puedes consultar su *track record* completo <a href="https://www.darwinexzero.com/es/darwin/NNZG/performance" style="color: #377867;" class="font-semibold underline hover:opacity-80" target="_blank" rel="noopener noreferrer">aquí</a>.
+
